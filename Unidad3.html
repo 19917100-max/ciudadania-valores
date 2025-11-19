@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unidad 3: Los Gobiernos Militares en el Siglo XX</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #34495e;
+            --text: #2c3e50;
+            --background: #f9f9f9;
+            --success: #27ae60;
+            --tertiary: #9b59b6;
+            --historical: #d35400;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.7;
+            font-size: 18px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            color: white;
+            padding: 2.5rem 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: cover;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .home-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: white;
+            text-decoration: none;
+            padding: 0.7rem 1.2rem;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .home-btn:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        
+        h2 {
+            color: var(--primary);
+            margin: 2.5rem 0 1.5rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 3px solid var(--historical);
+            font-size: 2.2rem;
+        }
+        
+        h3 {
+            color: var(--dark);
+            margin: 2rem 0 1rem;
+            font-size: 1.8rem;
+        }
+        
+        h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .unit-badge {
+            display: inline-block;
+            background: var(--historical);
+            color: white;
+            padding: 0.5rem 1.2rem;
+            border-radius: 30px;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .subtitle {
+            font-size: 1.4rem;
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .intro {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.12);
+        }
+        
+        .unit-header {
+            border-left: 6px solid var(--historical);
+        }
+        
+        .competence {
+            background-color: rgba(211, 84, 0, 0.15);
+            padding: 1.8rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+            font-size: 1.3rem;
+            line-height: 1.8;
+            border-left: 4px solid var(--historical);
+        }
+        
+        .content-section {
+            margin: 2rem 0;
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+        
+        .content-item {
+            background-color: var(--light);
+            padding: 1.8rem;
+            border-radius: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .content-item h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .indicators {
+            background-color: rgba(231, 76, 60, 0.1);
+            padding: 1.8rem;
+            border-radius: 10px;
+            margin-top: 1.8rem;
+            font-size: 1.2rem;
+            border-left: 4px solid var(--accent);
+        }
+        
+        .attitudes {
+            background-color: rgba(46, 204, 113, 0.1);
+            padding: 1.8rem;
+            border-radius: 10px;
+            margin-top: 1.8rem;
+            font-size: 1.2rem;
+            border-left: 4px solid var(--success);
+        }
+        
+        .topic-content {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            margin: 1.5rem 0;
+        }
+        
+        .topic-content p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 2rem auto;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--historical);
+            transform: translateX(-50%);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+            width: 45%;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 55%;
+        }
+        
+        .timeline-content {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid var(--historical);
+        }
+        
+        .timeline-year {
+            position: absolute;
+            top: 0;
+            width: 80px;
+            height: 80px;
+            background: var(--historical);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            z-index: 1;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-year {
+            right: -40px;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-year {
+            left: -40px;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-top: 4px solid var(--historical);
+        }
+        
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            font-size: 1.1rem;
+            color: var(--dark);
+        }
+        
+        .activity-box {
+            background-color: rgba(211, 84, 0, 0.05);
+            border-left: 4px solid var(--historical);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .activity-title {
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            color: var(--primary);
+        }
+        
+        .source-analysis {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .source-quote {
+            font-style: italic;
+            border-left: 3px solid var(--historical);
+            padding-left: 1rem;
+            margin: 1rem 0;
+            color: #555;
+        }
+        
+        footer {
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 2.5rem 0;
+            margin-top: 3rem;
+            font-size: 1.2rem;
+        }
+        
+        .unit-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #eee;
+        }
+        
+        .nav-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            background: var(--historical);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-btn:hover {
+            background: var(--primary);
+            transform: translateY(-2px);
+        }
+        
+        .perspective-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .perspective-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-top: 4px solid var(--secondary);
+        }
+        
+        .perspective-title {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        @media (max-width: 768px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .card {
+                padding: 1.8rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .unit-nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .nav-btn {
+                justify-content: center;
+            }
+            
+            .timeline::before {
+                left: 30px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                left: 0 !important;
+                padding-left: 70px;
+            }
+            
+            .timeline-year {
+                left: 0 !important;
+                right: auto !important;
+            }
+            
+            .perspective-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="nav-container">
+                <a href="index.html" class="home-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                    Volver al Inicio
+                </a>
+                <div class="unit-badge">Unidad 3</div>
+            </div>
+            <h1>Los Gobiernos Militares en el Siglo XX</h1>
+            <p class="subtitle">Análisis del período autoritario y sus consecuencias en la historia salvadoreña</p>
+        </div>
+    </header>
+    
+    <main class="container">
+        <section id="unit-overview">
+            <div class="card unit-header">
+                <div class="intro">
+                    <p>Esta unidad examina el período de los gobiernos militares en El Salvador durante el siglo XX, analizando sus características, políticas implementadas y el impacto en la sociedad salvadoreña, con especial atención a los acontecimientos de 1932 y sus consecuencias.</p>
+                </div>
+                
+                <div class="competence">
+                    <p><strong>Competencia de unidad:</strong> Analizar los aspectos políticos, económicos y sociales en los gobiernos militares en la primera mitad del siglo XX, mediante la interpretación de fuentes primarias y secundarias.</p>
+                </div>
+                
+                <div class="highlight-box">
+                    <h3>Contexto Histórico</h3>
+                    <p>El período de los gobiernos militares (1931-1979) marcó profundamente la historia contemporánea de El Salvador, estableciendo patrones autoritarios de ejercicio del poder que tendrían consecuencias duraderas en la estructura política y social del país.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="historical-context">
+            <h2>Contexto del Surgimiento de los Gobiernos Militares</h2>
+            
+            <div class="card">
+                <div class="topic-content">
+                    <p>El ascenso de los gobiernos militares en El Salvador debe entenderse en el contexto de la crisis mundial de 1929 y la inestabilidad política interna. El derrocamiento del presidente Arturo Araujo en diciembre de 1931 marcó el inicio de casi cinco décadas de gobiernos militares. Este golpe de estado respondió a la incapacidad del gobierno civil para manejar la crisis económica derivada de la Gran Depresión, que había provocado una drástica caída en los precios del café, principal producto de exportación.</p>
+                    
+                    <p>La sociedad salvadoreña de la época presentaba profundas desigualdades, con una estructura agraria basada en la concentración de la tierra en pocas manos y la exclusión política de la mayoría de la población. El sistema político, dominado por la oligarquía cafetalera, mantenía mecanismos de control social que impedían la participación política de campesinos, indígenas y trabajadores urbanos. Esta exclusión generó crecientes tensiones sociales que desembocarían en los acontecimientos de 1932.</p>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-value">1931</div>
+                            <div class="stat-label">Inicio del Martinato</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">48 años</div>
+                            <div class="stat-label">Duración de gobiernos militares</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">2%</div>
+                            <div class="stat-label">Familias controlaban 60% de tierra cultivable</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">90%</div>
+                            <div class="stat-label">Caída precio café (1929-1931)</div>
+                        </div>
+                    </div>
+                    
+                    <p>El contexto internacional también influyó en el surgimiento del autoritarismo militar. La crisis del liberalismo a nivel mundial, el ascenso de regímenes fascistas en Europa y la creciente influencia de ideas socialistas tras la Revolución Rusa crearon un ambiente propicio para soluciones autoritarias. En América Latina, varios países experimentaron procesos similares de militarización del poder político como respuesta a la inestabilidad económica y social.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="martinato">
+            <h2>El Martinato (1931-1944)</h2>
+            
+            <div class="card">
+                <h3>El Gobierno de Maximiliano Hernández Martínez</h3>
+                <div class="topic-content">
+                    <p>El general Maximiliano Hernández Martínez asumió el poder tras el derrocamiento de Arturo Araujo, inaugurando un régimen que se caracterizaría por su autoritarismo, anticomunismo y la implementación de políticas de control social. Martínez desarrolló un discurso basado en el orden, la moral y la espiritualidad, combinando elementos autoritarios con un peculiar misticismo teosófico que influyó en su concepción del poder.</p>
+                    
+                    <p>El gobierno de Martínez implementó políticas económicas orientadas a proteger los intereses de la oligarquía cafetalera, manteniendo el modelo agroexportador mientras implementaba algunas medidas de regulación económica. Se crearon instituciones como el Banco Central de Reserva (1934) y se establecieron controles cambiarios para enfrentar la crisis económica. Sin embargo, estas medidas no abordaron las causas estructurales de la desigualdad y la pobreza en el campo.</p>
+                    
+                    <div class="activity-box">
+                        <div class="activity-title">Análisis de Fuentes Primarias</div>
+                        <p>Lee el discurso de Maximiliano Hernández Martínez del 2 de marzo de 1932. Identifica los elementos principales de su justificación del régimen y analiza cómo construye su legitimidad ante la crisis política y social del momento.</p>
+                    </div>
+                    
+                    <p>En el ámbito cultural, el régimen de Martínez promovió un nacionalismo conservador que exaltaba valores tradicionales y buscaba contrarrestar la influencia de ideas consideradas "foráneas" como el comunismo y el liberalismo. Se implementaron políticas de control sobre la educación y los medios de comunicación, mientras se fomentaba una visión de la historia que legitimaba el orden social existente.</p>
+                </div>
+                
+                <h3>La Insurrección de 1932 y la Represión</h3>
+                <div class="topic-content">
+                    <p>Los acontecimientos de enero de 1932 representaron un punto de inflexión en la historia salvadoreña. La insurrección campesina e indígena, liderada por figuras como Feliciano Ama y Farabundo Martí, respondió a las condiciones de explotación y exclusión que sufrían las mayorías rurales. Aunque la rebelión fue rápidamente sofocada por el ejército, desencadenó una represión masiva cuyas dimensiones exactas siguen siendo objeto de debate histórico.</p>
+                    
+                    <div class="source-analysis">
+                        <h4>Testimonio Histórico</h4>
+                        <div class="source-quote">
+                            "En los días siguientes al levantamiento, las calles de Sonsonate y otros pueblos del occidente aparecían cada mañana sembradas de cadáveres. El ejército y los cuerpos de seguridad realizaban ejecuciones sumarias, frecuentemente basadas en la simple sospecha o en denuncias anónimas."
+                        </div>
+                        <p><em>Relato de testigo presencial recogido por el periodista Jorge Schlesinger</em></p>
+                    </div>
+                    
+                    <p>La represión posterior al levantamiento, conocida como "La Matanza", tuvo un carácter étnico y político, dirigida especialmente contra la población indígena y quienes eran percibidos como simpatizantes comunistas. Las estimaciones sobre el número de víctimas varían entre 10,000 y 30,000 personas, aunque la falta de registros oficiales confiables dificulta la precisión. Este evento tuvo consecuencias profundas en la estructura social, acelerando procesos de ladinización y generando un trauma colectivo que marcaría la memoria histórica del país.</p>
+                    
+                    <p>La narrativa oficial sobre los acontecimientos de 1932 los presentó como una necesaria defensa del orden y la civilización frente a la barbarie comunista. Esta versión se mantendría como la interpretación dominante durante décadas, silenciando las voces de las víctimas y justificando el autoritarismo como mecanismo de protección ante amenazas externas e internas.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="military-governments">
+            <h2>Gobiernos Militares Reformistas (1948-1960)</h2>
+            
+            <div class="card">
+                <div class="topic-content">
+                    <p>Tras el derrocamiento de Martínez en 1944 y un breve período de inestabilidad, surgió una nueva generación de gobiernos militares que combinaron el autoritarismo político con ciertas reformas modernizadoras. El "golpe de los mayores" de 1948 inauguró este período, caracterizado por intentos de modernización institucional y el desarrollo de políticas sociales limitadas.</p>
+                    
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-year">1948</div>
+                            <div class="timeline-content">
+                                <h4>Golpe de los Mayores</h4>
+                                <p>Un grupo de oficiales jóvenes derroca al general Salvador Castaneda Castro, inaugurando el período de gobiernos militares reformistas.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-year">1950</div>
+                            <div class="timeline-content">
+                                <h4>Nueva Constitución</h4>
+                                <p>Se promulga una nueva constitución que establece reformas modernizadoras pero mantiene restricciones a la participación política.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-year">1960</div>
+                            <div class="timeline-content">
+                                <h4>Creación del Mercado Común Centroamericano</h4>
+                                <p>El Salvador se integra al proceso de integración económica regional, impulsando la industrialización.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <p>La Constitución de 1950 representó un intento de institucionalizar el sistema político, estableciendo ciertas garantías sociales mientras mantenía mecanismos de control autoritario. Se crearon instituciones como el Instituto de Vivienda Urbana (IVU) y se expandieron algunos servicios sociales, aunque dentro de un marco que preservaba los privilegios de las élites tradicionales.</p>
+                    
+                    <p>En el ámbito económico, estos gobiernos impulsaron el modelo de Industrialización por Sustitución de Importaciones (ISI) y promovieron la integración centroamericana a través del Mercado Común Centroamericano. Estas políticas generaron cierto crecimiento económico y modernización, pero no lograron transformar la estructura agraria desigual ni incorporar significativamente a las mayorías rurales al desarrollo.</p>
+                    
+                    <div class="activity-box">
+                        <div class="activity-title">Análisis Comparativo</div>
+                        <p>Compara las políticas económicas del modelo ISI implementado en El Salvador con experiencias similares en otros países de América Latina. Identifica logros, limitaciones y consecuencias de este modelo de desarrollo en el contexto salvadoreño.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="regional-integration">
+            <h2>Integración Regional y Conflicto con Honduras</h2>
+            
+            <div class="card">
+                <div class="topic-content">
+                    <p>El Mercado Común Centroamericano, establecido formalmente en 1960, representó un ambicioso proyecto de integración económica regional que tuvo importantes consecuencias para El Salvador. El país, con su mayor desarrollo industrial relativo, se benefició inicialmente del acceso a mercados regionales, experimentando un significativo crecimiento manufacturero durante la década de 1960.</p>
+                    
+                    <p>Sin embargo, la integración económica también generó tensiones, particularmente con Honduras. Las asimetrías en el desarrollo industrial, combinadas con problemas estructurales como la migración salvadoreña a Honduras y disputas territoriales, crearon un contexto de creciente conflicto bilateral. La expulsión de miles de salvadoreños residentes en Honduras en 1969 desencadenó la llamada "Guerra del Fútbol" o "Guerra de las 100 Horas".</p>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-value">100 horas</div>
+                            <div class="stat-label">Duración del conflicto armado</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">300,000</div>
+                            <div class="stat-label">Salvadoreños expulsados de Honduras</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">2,000+</div>
+                            <div class="stat-label">Víctimas mortales estimadas</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">1969</div>
+                            <div class="stat-label">Año del conflicto</div>
+                        </div>
+                    </div>
+                    
+                    <p>La guerra con Honduras tuvo profundas consecuencias económicas y sociales para El Salvador. El retorno masivo de migrantes agravó la presión sobre la tierra y los servicios, mientras que la interrupción del comercio regional afectó seriamente a la industria manufacturera. El conflicto también fortaleció el papel político de los militares y generó un nacionalismo que fue instrumentalizado por el régimen para distraer la atención de los problemas internos.</p>
+                    
+                    <p>El Mercado Común Centroamericano nunca se recuperó completamente del impacto de la guerra, marcando el inicio del declive del modelo de integración regional y del proyecto industrializador basado en la sustitución de importaciones. Este fracaso contribuiría a agravar las tensiones sociales y económicas que desembocarían en el conflicto armado de las décadas siguientes.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="historical-memory">
+            <h2>Memoria Histórica y Narrativas sobre 1932</h2>
+            
+            <div class="card">
+                <div class="topic-content">
+                    <p>La memoria de los acontecimientos de 1932 ha sido objeto de disputa y reinterpretación a lo largo del tiempo. Durante décadas, la narrativa oficial presentó los eventos como una necesaria defensa del orden frente a una amenaza comunista, silenciando las voces de las víctimas y justificando la represión. Esta versión fue cuestionada progresivamente por investigaciones históricas y por el surgimiento de movimientos sociales que reivindicaban la memoria de los masacrados.</p>
+                    
+                    <div class="perspective-grid">
+                        <div class="perspective-card">
+                            <div class="perspective-title">Narrativa Oficial</div>
+                            <p>Presentaba la insurrección como una amenaza comunista internacional y justificaba la represión como defensa necesaria de la nación y la civilización occidental.</p>
+                        </div>
+                        
+                        <div class="perspective-card">
+                            <div class="perspective-title">Narrativa de Izquierda</div>
+                            <p>Enfatizaba el carácter popular y anti-oligárquico del levantamiento, denunciando la represión como un genocidio contra el pueblo trabajador e indígena.</p>
+                        </div>
+                        
+                        <div class="perspective-card">
+                            <div class="perspective-title">Narrativa Académica</div>
+                            <p>Busca comprender la complejidad del evento, analizando factores económicos, sociales y culturales, y cuestionando las simplificaciones de otras narrativas.</p>
+                        </div>
+                    </div>
+                    
+                    <p>En las últimas décadas, han emergido esfuerzos por recuperar la memoria histórica de las víctimas de 1932, particularmente desde las comunidades indígenas y organizaciones de derechos humanos. Estos esfuerzos buscan no solo establecer la verdad sobre los acontecimientos, sino también reconocer su significado en la construcción de la identidad nacional y en la comprensión de los conflictos posteriores.</p>
+                    
+                    <div class="activity-box">
+                        <div class="activity-title">Análisis de Narrativas Históricas</div>
+                        <p>Compara diferentes fuentes sobre los acontecimientos de 1932 (documentos oficiales de la época, testimonios de sobrevivientes, análisis académicos). Identifica cómo cada fuente construye su versión de los hechos y qué intereses o perspectivas representan.</p>
+                    </div>
+                    
+                    <p>El estudio crítico del período de los gobiernos militares y de eventos como la insurrección y represión de 1932 permite comprender las raíces históricas de muchos de los problemas contemporáneos de El Salvador. La capacidad de analizar diferentes perspectivas y evaluar críticamente las fuentes históricas es fundamental para desarrollar una conciencia histórica que contribuya a la construcción de una sociedad más democrática e inclusiva.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="learning-content">
+            <h2>Contenidos de Aprendizaje</h2>
+            
+            <div class="card">
+                <div class="content-section">
+                    <div class="content-grid">
+                        <div class="content-item">
+                            <h4>Contenidos Conceptuales</h4>
+                            <ul>
+                                <li>El Martinato: contexto histórico y características</li>
+                                <li>La Insurrección de 1932 y la represión posterior</li>
+                                <li>Consecuencias de los acontecimientos de 1932</li>
+                                <li>Caracterización del gobierno de Martínez: políticas económicas y culturales</li>
+                                <li>Derrocamiento del Martinato y transición</li>
+                                <li>La memoria histórica de 1932 desde diferentes sectores</li>
+                                <li>Gobiernos militares reformistas: cambios y continuidades</li>
+                                <li>Constitución de 1950: proyecto de modernización</li>
+                                <li>Mejoras en condiciones de vida durante los gobiernos reformistas</li>
+                                <li>Reforma Educativa de los años 50</li>
+                                <li>Modelo ISI (Industrialización por Sustitución de Importaciones)</li>
+                                <li>Diversificación de la agricultura de exportación</li>
+                                <li>Mercado Común Centroamericano: contexto e implementación</li>
+                                <li>Participación de El Salvador en la integración económica regional</li>
+                                <li>Guerra con Honduras 1969: contexto y consecuencias</li>
+                                <li>Causas y desarrollo del conflicto con Honduras</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="content-item">
+                            <h4>Contenidos Procedimentales</h4>
+                            <ul>
+                                <li>Interpretación de acontecimientos y represión posterior al levantamiento de 1932 a partir de fuentes históricas</li>
+                                <li>Caracterización del gobierno del general Martínez considerando políticas económicas y culturales</li>
+                                <li>Identificación de causas del derrocamiento del martinato</li>
+                                <li>Identificación de diferentes perspectivas y narrativas sobre 1932</li>
+                                <li>Caracterización de gobiernos militares reformistas a partir de cambios y continuidades</li>
+                                <li>Identificación de condiciones de participación en el Mercado Común Centroamericano</li>
+                                <li>Interpretación de causas y consecuencias de la guerra con Honduras</li>
+                                <li>Análisis comparativo de diferentes narrativas históricas</li>
+                                <li>Evaluación crítica de fuentes primarias y secundarias</li>
+                                <li>Contextualización de procesos históricos en su marco temporal</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="indicators">
+                    <h4>Indicadores de Logro</h4>
+                    <ul>
+                        <li><strong>3.1</strong> Analiza los acontecimientos y la represión posterior al levantamiento de 1932 a partir de fuentes históricas.</li>
+                        <li><strong>3.2</strong> Explica las características del gobierno del general Martínez con énfasis en las políticas económicas y culturales.</li>
+                        <li><strong>3.3</strong> Interpreta las causas del derrocamiento del martinato.</li>
+                        <li><strong>3.4</strong> Analiza diferentes perspectivas y narrativas sobre 1932 desarrolladas por diferentes grupos sociales y políticos posteriores al levantamiento.</li>
+                        <li><strong>3.5</strong> Analiza los gobiernos militares reformistas a partir de cambios y continuidades en el ámbito político, económico y social.</li>
+                        <li><strong>3.6</strong> Evalúa las condiciones de participación de los países en el Mercado Común Centroamericano.</li>
+                        <li><strong>3.7</strong> Explica las causas y consecuencias de la guerra con Honduras a corto y largo plazo.</li>
+                    </ul>
+                </div>
+                
+                <div class="attitudes">
+                    <h4>Contenidos Actitudinales</h4>
+                    <ul>
+                        <li>Dedicación e interés en el análisis de fuentes primarias y secundarias de los procesos históricos de la primera mitad del siglo XX.</li>
+                        <li>Comprensión crítica de diferentes perspectivas en el desarrollo de los acontecimientos de 1932 y las narrativas posteriores.</li>
+                        <li>Respeto por la memoria histórica de las víctimas de la represión.</li>
+                        <li>Valoración del estudio histórico como herramienta para comprender el presente.</li>
+                        <li>Actitud crítica frente a las interpretaciones simplificadas de procesos históricos complejos.</li>
+                        <li>Sensibilidad ante las consecuencias humanas de los conflictos políticos y sociales.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <section id="resources">
+            <h2>Recursos Adicionales</h2>
+            
+            <div class="card">
+                <div class="topic-content">
+                    <h3>Fuentes de Información</h3>
+                    <ul>
+                        <li>Archivo General de la Nación - Documentos oficiales del período</li>
+                        <li>Museo de la Palabra y la Imagen - Testimonios y fotografías históricas</li>
+                        <li>Biblioteca "P. Florentino Idoate, S.J." - Colección de documentos históricos</li>
+                        <li>Universidad Centroamericana "José Simeón Cañas" - Investigaciones académicas</li>
+                        <li>Revistas especializadas en historia centroamericana</li>
+                    </ul>
+                    
+                    <h3>Términos Clave</h3>
+                    <ul>
+                        <li><strong>Autoritarismo:</strong> Sistema político que concentra el poder en un líder o élite sin participación popular efectiva.</li>
+                        <li><strong>Anticomunismo:</strong> Ideología y práctica política opuesta al comunismo, frecuentemente utilizada para justificar la represión.</li>
+                        <li><strong>Industrialización por Sustitución de Importaciones (ISI):</strong> Modelo económico que promueve la producción local de bienes previamente importados.</li>
+                        <li><strong>Memoria histórica:</strong> Construcción social del pasado a través de narrativas, conmemoraciones y testimonios.</li>
+                        <li><strong>Integración regional:</strong> Proceso de vinculación económica, política o cultural entre países de una región.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <div class="unit-nav">
+            <a href="Unidad2.html" class="nav-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+                Unidad 2: Dinámicas Poblacionales
+            </a>
+            <a href="Unidad4.html" class="nav-btn">
+                Unidad 4: Guerra Civil y Posguerra
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+            </a>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>Programa de Estudios de Ciudadanía y Valores - Educación Media 2024</p>
+            <p>Ministerio de Educación, Ciencia y Tecnología - El Salvador</p>
+            <p>Material en validación - Proyecto "Mi Nueva Escuela"</p>
+        </div>
+    </footer>
+</body>
+</html>

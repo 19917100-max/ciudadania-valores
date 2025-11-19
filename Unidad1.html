@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unidad 1: Geografía Económica de El Salvador</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #34495e;
+            --text: #2c3e50;
+            --background: #f9f9f9;
+            --success: #27ae60;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.7;
+            font-size: 18px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            color: white;
+            padding: 2.5rem 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: cover;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .home-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: white;
+            text-decoration: none;
+            padding: 0.7rem 1.2rem;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .home-btn:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        
+        h2 {
+            color: var(--primary);
+            margin: 2.5rem 0 1.5rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 3px solid var(--secondary);
+            font-size: 2.2rem;
+        }
+        
+        h3 {
+            color: var(--dark);
+            margin: 2rem 0 1rem;
+            font-size: 1.8rem;
+        }
+        
+        h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .unit-badge {
+            display: inline-block;
+            background: var(--secondary);
+            color: white;
+            padding: 0.5rem 1.2rem;
+            border-radius: 30px;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .subtitle {
+            font-size: 1.4rem;
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .intro {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.12);
+        }
+        
+        .unit-header {
+            border-left: 6px solid var(--secondary);
+        }
+        
+        .competence {
+            background-color: rgba(52, 152, 219, 0.15);
+            padding: 1.8rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+            font-size: 1.3rem;
+            line-height: 1.8;
+            border-left: 4px solid var(--secondary);
+        }
+        
+        .content-section {
+            margin: 2rem 0;
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+        
+        .content-item {
+            background-color: var(--light);
+            padding: 1.8rem;
+            border-radius: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .content-item h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .indicators {
+            background-color: rgba(231, 76, 60, 0.1);
+            padding: 1.8rem;
+            border-radius: 10px;
+            margin-top: 1.8rem;
+            font-size: 1.2rem;
+            border-left: 4px solid var(--accent);
+        }
+        
+        .attitudes {
+            background-color: rgba(46, 204, 113, 0.1);
+            padding: 1.8rem;
+            border-radius: 10px;
+            margin-top: 1.8rem;
+            font-size: 1.2rem;
+            border-left: 4px solid var(--success);
+        }
+        
+        .topic-content {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            margin: 1.5rem 0;
+        }
+        
+        .topic-content p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-top: 4px solid var(--secondary);
+        }
+        
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            font-size: 1.1rem;
+            color: var(--dark);
+        }
+        
+        .activity-box {
+            background-color: rgba(52, 152, 219, 0.05);
+            border-left: 4px solid var(--secondary);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .activity-title {
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            color: var(--primary);
+        }
+        
+        footer {
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 2.5rem 0;
+            margin-top: 3rem;
+            font-size: 1.2rem;
+        }
+        
+        .unit-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #eee;
+        }
+        
+        .nav-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            background: var(--secondary);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-btn:hover {
+            background: var(--primary);
+            transform: translateY(-2px);
+        }
+        
+        @media (max-width: 768px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .card {
+                padding: 1.8rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .unit-nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .nav-btn {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="nav-container">
+                <a href="index.html" class="home-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                    Volver al Inicio
+                </a>
+                <div class="unit-badge">Unidad 1</div>
+            </div>
+            <h1>Geografía Económica de El Salvador</h1>
+            <p class="subtitle">Análisis de la estructura productiva y los desafíos económicos del país</p>
+        </div>
+    </header>
+    
+    <main class="container">
+        <section id="unit-overview">
+            <div class="card unit-header">
+                <div class="intro">
+                    <p>Esta unidad permite comprender la organización económica de El Salvador, analizando sus sectores productivos, la inserción en la economía global y los principales desafíos para el desarrollo económico sostenible.</p>
+                </div>
+                
+                <div class="competence">
+                    <p><strong>Competencia de unidad:</strong> Caracterizar la situación económica de El Salvador, a partir de la interrelación entre los sectores productivos y la estructura macroeconómica, para evaluar sus efectos en la calidad de vida de la población.</p>
+                </div>
+                
+                <div class="highlight-box">
+                    <h3>Enfoque de la Unidad</h3>
+                    <p>El estudio de la geografía económica nos permite entender cómo se organiza la producción, distribución y consumo de bienes y servicios en el territorio salvadoreño, y cómo esta organización impacta en las condiciones de vida de la población.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="economic-overview">
+            <h2>Panorama Económico de El Salvador</h2>
+            
+            <div class="card">
+                <div class="topic-content">
+                    <p>La economía salvadoreña ha experimentado importantes transformaciones en las últimas décadas, transitando de un modelo predominantemente agroexportador hacia una economía más diversificada con predominio del sector servicios. Con un Producto Interno Bruto (PIB) de aproximadamente 28,000 millones de dólares (2022), El Salvador se posiciona como la cuarta economía más grande de Centroamérica. Sin embargo, persisten desafíos estructurales como la desigualdad en la distribución del ingreso, la alta dependencia de las remesas familiares y la vulnerabilidad ante shocks externos.</p>
+                    
+                    <p>La dolarización de la economía, implementada en 2001, ha aportado estabilidad macroeconómica al eliminar el riesgo cambiario y controlar la inflación, pero simultáneamente ha limitado la capacidad del país para implementar políticas monetarias anticíclicas. Esta medida, junto con la firma de tratados de libre comercio, ha facilitado la integración de El Salvador en la economía global, pero también ha expuesto al país a la volatilidad de los mercados internacionales.</p>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-value">64.2%</div>
+                            <div class="stat-label">Participación del sector servicios en el PIB</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">22.8%</div>
+                            <div class="stat-label">Participación de remesas en el PIB</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">26.5%</div>
+                            <div class="stat-label">Población en situación de pobreza</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">$5,900</div>
+                            <div class="stat-label">PIB per cápita (USD)</div>
+                        </div>
+                    </div>
+                    
+                    <p>La estructura productiva salvadoreña muestra una marcada heterogeneidad, con sectores de alta productividad conviviendo con amplios segmentos de baja productividad e informalidad. Mientras las zonas francas y el sector financiero muestran niveles de productividad comparables con economías desarrolladas, la agricultura de subsistencia y el comercio informal presentan bajos niveles de valor agregado y productividad. Esta dualidad productiva explica en parte la persistencia de altos niveles de desigualdad económica en el país.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="sectors-analysis">
+            <h2>Análisis de los Sectores Productivos</h2>
+            
+            <div class="card">
+                <h3>Sector Primario: Agricultura y Recursos Naturales</h3>
+                <div class="topic-content">
+                    <p>El sector primario, aunque ha reducido su participación relativa en la economía nacional, mantiene una importancia estratégica para la seguridad alimentaria, el empleo rural y la conservación de los recursos naturales. La agricultura salvadoreña se caracteriza por su dualidad: por un lado, una agricultura comercial orientada a la exportación (café, azúcar, frutas tropicales) y por otro, una agricultura de subsistencia que ocupa a la mayor parte de la población rural.</p>
+                    
+                    <p>El café, históricamente el principal producto de exportación, ha enfrentado desafíos como la volatilidad de precios internacionales, el cambio climático y la roya. No obstante, mantiene importancia como generador de empleo rural y como producto de identidad nacional. Por otro lado, la producción de granos básicos (maíz, frijol, sorgo) enfrenta limitaciones de productividad y competitividad, resultando en una creciente dependencia de las importaciones para satisfacer la demanda interna.</p>
+                    
+                    <div class="activity-box">
+                        <div class="activity-title">Actividad de Aprendizaje</div>
+                        <p>Investiga sobre la evolución de la producción cafetalera en El Salvador durante las últimas tres décadas. Identifica los principales desafíos que enfrenta este sector y propone estrategias para su revitalización sostenible.</p>
+                    </div>
+                    
+                    <p>La pesca y la acuicultura representan actividades con potencial de desarrollo, especialmente en la zona costera y en cuerpos de agua continentales. Sin embargo, enfrentan problemas como la sobrepesca, la contaminación de los recursos hídricos y la falta de tecnificación. El sector minero tiene una presencia limitada en la economía nacional, con explotación principalmente de materiales de construcción, debido a restricciones ambientales y a la moratoria a la minería metálica establecida en 2017.</p>
+                </div>
+                
+                <h3>Sector Secundario: Industria y Manufactura</h3>
+                <div class="topic-content">
+                    <p>El sector industrial salvadoreño se caracteriza por su orientación hacia la maquila textil y de confección, concentrada principalmente en zonas francas. Este modelo ha generado empleo, especialmente para mujeres, pero presenta limitaciones en términos de encadenamientos productivos, transferencia tecnológica y valor agregado. La industria alimentaria, de bebidas y tabaco representa el segundo subsector industrial en importancia, con presencia tanto de grandes empresas como de pequeñas y medianas empresas orientadas al mercado interno.</p>
+                    
+                    <p>La producción de energía es un sector estratégico para el desarrollo económico del país. El Salvador ha avanzado en la diversificación de su matriz energética, con una creciente participación de fuentes renovables como la geotermia (aprovechando el potencial volcánico), hidroeléctrica y solar. No obstante, persisten desafíos relacionados con los costos de generación, la eficiencia en la distribución y la cobertura en zonas rurales.</p>
+                    
+                    <p>La construcción representa un sector cíclico vinculado a la inversión pública y privada, con efectos multiplicadores en otros sectores de la economía. La industria de materiales de construcción tiene una presencia significativa, aprovechando los recursos naturales disponibles en el territorio. Sin embargo, el sector enfrenta desafíos como la informalidad, la estacionalidad y la dependencia de insumos importados.</p>
+                </div>
+                
+                <h3>Sector Terciario: Servicios y Comercio</h3>
+                <div class="topic-content">
+                    <p>El sector servicios es el más dinámico de la economía salvadoreña, representando aproximadamente dos tercios del PIB. El comercio, tanto formal como informal, tiene una presencia significativa en la estructura productiva, con una marcada concentración en el área metropolitana de San Salvador. Los centros comerciales han transformado los patrones de consumo y la configuración urbana, aunque también han generado desafíos relacionados con la competencia desleal hacia el comercio tradicional.</p>
+                    
+                    <p>El sistema financiero salvadoreño se caracteriza por su solidez y nivel de bancarización, con presencia de grupos financieros regionales. Los servicios bancarios, seguros y afines han mostrado un crecimiento sostenido, aunque persisten brechas en el acceso al crédito para pequeños productores y empresas. Las remesas familiares, que representan una fuente crucial de divisas, son canalizadas principalmente a través del sistema financiero formal, con efectos significativos en el consumo y la inversión a nivel familiar.</p>
+                    
+                    <p>El turismo constituye un sector con potencial de desarrollo, aprovechando los atractivos naturales (playas, volcanes, bosques) y culturales (sitios arqueológicos, pueblos tradicionales) del país. Sin embargo, enfrenta limitaciones relacionadas con la infraestructura, la seguridad y la promoción internacional. Los servicios logísticos y de transporte han ganado importancia estratégica dada la posición geográfica de El Salvador en la región centroamericana.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="global-integration">
+            <h2>Inserción en la Economía Global</h2>
+            
+            <div class="card">
+                <div class="topic-content">
+                    <p>La integración comercial de El Salvador en la economía global se ha profundizado mediante la firma de tratados de libre comercio, destacando el CAFTA-DR con Estados Unidos y los acuerdos con México, Chile, la Unión Europea y otros socios comerciales. Esta apertura comercial ha facilitado el acceso a mercados internacionales para productos de exportación, pero simultáneamente ha expuesto a los productores nacionales a la competencia externa.</p>
+                    
+                    <p>El patrón de comercio exterior salvadoreño refleja la estructura productiva del país: exportaciones concentradas en maquila textil, café, azúcar y productos farmacéuticos; e importaciones diversificadas que incluyen bienes de consumo, materias primas, combustibles y maquinaria. La balanza comercial es estructuralmente deficitaria, compensada parcialmente por el flujo de remesas familiares y la inversión extranjera directa.</p>
+                    
+                    <div class="activity-box">
+                        <div class="activity-title">Análisis de Caso</div>
+                        <p>Analiza el impacto del CAFTA-DR en la economía salvadoreña después de 15 años de implementación. Identifica sectores ganadores y perdedores, y evalúa los efectos en el empleo, las exportaciones y la estructura productiva del país.</p>
+                    </div>
+                    
+                    <p>La globalización financiera ha permitido la integración del sistema financiero salvadoreño con los mercados internacionales, facilitando el flujo de capitales pero también aumentando la exposición a crisis financieras globales. La dolarización ha aportado estabilidad macroeconómica pero ha limitado la capacidad de política monetaria, transfiriendo al sector fiscal la responsabilidad principal de la estabilización económica.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="learning-content">
+            <h2>Contenidos de Aprendizaje</h2>
+            
+            <div class="card">
+                <div class="content-section">
+                    <div class="content-grid">
+                        <div class="content-item">
+                            <h4>Contenidos Conceptuales</h4>
+                            <ul>
+                                <li>Actividades productivas: sector primario y secundario en El Salvador</li>
+                                <li>Actividades agropecuarias, forestales y extractivas</li>
+                                <li>La industria y los productos manufacturados</li>
+                                <li>La energía: fuentes y producción</li>
+                                <li>Actividades productivas: sector terciario y cuaternario</li>
+                                <li>Servicios de transporte y turismo</li>
+                                <li>Telecomunicaciones y servicios financieros</li>
+                                <li>Investigación y tecnología</li>
+                                <li>La macroeconomía y sus indicadores</li>
+                                <li>Aspectos microeconómicos</li>
+                                <li>El comercio internacional</li>
+                                <li>La globalización en El Salvador</li>
+                                <li>Ventajas y desventajas de la globalización</li>
+                                <li>La distribución y concentración de la riqueza</li>
+                                <li>La inflación y el déficit fiscal</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="content-item">
+                            <h4>Contenidos Procedimentales</h4>
+                            <ul>
+                                <li>Análisis del impacto de las actividades económicas del sector primario y secundario en El Salvador</li>
+                                <li>Análisis del impacto de las actividades económicas del sector terciario y cuaternario en El Salvador</li>
+                                <li>Comprensión de la estructura económica de El Salvador a partir de los indicadores económicos</li>
+                                <li>Reconocimiento de las ventajas y desventajas de la globalización para el crecimiento económico</li>
+                                <li>Descripción de los desafíos de la economía salvadoreña y sus consecuencias</li>
+                                <li>Interpretación de datos macroeconómicos y su relación con la microeconomía</li>
+                                <li>Comparación de la estructura económica salvadoreña con otros países de la región</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="indicators">
+                    <h4>Indicadores de Logro</h4>
+                    <ul>
+                        <li><strong>1.1</strong> Evalúa el impacto de las actividades económicas del sector primario y secundario en las condiciones de vida de El Salvador a partir del estudio de casos.</li>
+                        <li><strong>1.2</strong> Determina el impacto del sector terciario y cuaternario en las condiciones de vida de El Salvador a partir del estudio de casos.</li>
+                        <li><strong>1.3</strong> Explica la estructura económica de El Salvador, relacionando los indicadores macroeconómicos con los aspectos microeconómicos para comprender la dinámica familiar, local y nacional.</li>
+                        <li><strong>1.4</strong> Comprende las ventajas y desventajas de la globalización para el crecimiento económico de El Salvador.</li>
+                        <li><strong>1.5</strong> Explica los desafíos de la economía salvadoreña y comprende sus consecuencias para la calidad de vida de la población.</li>
+                    </ul>
+                </div>
+                
+                <div class="attitudes">
+                    <h4>Contenidos Actitudinales</h4>
+                    <ul>
+                        <li>Interés por analizar las políticas económicas y sus impactos en las condiciones de vida de la población.</li>
+                        <li>Compromiso con la búsqueda de soluciones equitativas y sostenibles para los desafíos económicos del país.</li>
+                        <li>Valoración crítica de los procesos de globalización y su impacto en la economía nacional.</li>
+                        <li>Sensibilidad ante las desigualdades económicas y territoriales en El Salvador.</li>
+                        <li>Actitud propositiva frente a los desafíos del desarrollo económico nacional.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <section id="resources">
+            <h2>Recursos Adicionales</h2>
+            
+            <div class="card">
+                <div class="topic-content">
+                    <h3>Fuentes de Información</h3>
+                    <ul>
+                        <li>Banco Central de Reserva de El Salvador - Estadísticas económicas</li>
+                        <li>Ministerio de Economía - Informes sectoriales</li>
+                        <li>Programa de las Naciones Unidas para el Desarrollo - Informes de desarrollo humano</li>
+                        <li>FUSADES - Análisis económicos y propuestas de política</li>
+                        <li>CEPAL - Estudios sobre desarrollo económico de Centroamérica</li>
+                    </ul>
+                    
+                    <h3>Términos Clave</h3>
+                    <ul>
+                        <li><strong>PIB (Producto Interno Bruto):</strong> Valor total de los bienes y servicios producidos en un país durante un período determinado.</li>
+                        <li><strong>Inflación:</strong> Aumento generalizado y sostenido de los precios de bienes y servicios en una economía.</li>
+                        <li><strong>Balanza comercial:</strong> Diferencia entre el valor de las exportaciones e importaciones de un país.</li>
+                        <li><strong>Remesas:</strong> Envíos de dinero que los migrantes realizan a sus países de origen.</li>
+                        <li><strong>Zonas francas:</strong> Áreas del territorio donde se aplican regímenes especiales para la producción de bienes destinados a la exportación.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <div class="unit-nav">
+            <a href="index.html" class="nav-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+                Página Principal
+            </a>
+            <a href="Unidad2.html" class="nav-btn">
+                Unidad 2: Dinámicas Poblacionales
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+            </a>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>Programa de Estudios de Ciudadanía y Valores - Educación Media 2024</p>
+            <p>Ministerio de Educación, Ciencia y Tecnología - El Salvador</p>
+            <p>Material en validación - Proyecto "Mi Nueva Escuela"</p>
+        </div>
+    </footer>
+</body>
+</html>

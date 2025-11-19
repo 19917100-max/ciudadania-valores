@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ciudadanía y Valores - Segundo Año de Bachillerato</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #34495e;
+            --text: #2c3e50;
+            --background: #f9f9f9;
+            --success: #27ae60;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.7;
+            font-size: 18px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: cover;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        h2 {
+            color: var(--primary);
+            margin: 3rem 0 2rem;
+            text-align: center;
+            font-size: 2.5rem;
+        }
+        
+        h3 {
+            color: var(--dark);
+            margin: 1.5rem 0 1rem;
+            font-size: 1.8rem;
+        }
+        
+        .subtitle {
+            font-size: 1.5rem;
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+        }
+        
+        .intro {
+            font-size: 1.3rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.8;
+        }
+        
+        .units-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin: 3rem 0;
+        }
+        
+        .unit-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .unit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.18);
+        }
+        
+        .unit-image {
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .unit-image::after {
+            content: "Imagen de referencia";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.7);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .unit-image:hover::after {
+            opacity: 1;
+        }
+        
+        .unit-content {
+            padding: 2rem;
+        }
+        
+        .unit-number {
+            display: inline-block;
+            background: var(--secondary);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        
+        .unit-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            min-height: 70px;
+        }
+        
+        .unit-description {
+            font-size: 1.1rem;
+            color: var(--dark);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .unit-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            background: var(--secondary);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .unit-link:hover {
+            background: var(--primary);
+            transform: translateY(-2px);
+        }
+        
+        .program-info {
+            background: white;
+            border-radius: 15px;
+            padding: 2.5rem;
+            margin: 3rem 0;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .info-item {
+            text-align: center;
+            padding: 1.5rem;
+        }
+        
+        .info-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+        
+        .info-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        
+        footer {
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 2.5rem 0;
+            margin-top: 4rem;
+        }
+        
+        .color-1 { background: linear-gradient(135deg, #3498db, #2980b9); }
+        .color-2 { background: linear-gradient(135deg, #9b59b6, #8e44ad); }
+        .color-3 { background: linear-gradient(135deg, #d35400, #e74c3c); }
+        .color-4 { background: linear-gradient(135deg, #c0392b, #e74c3c); }
+        .color-5 { background: linear-gradient(135deg, #2980b9, #3498db); }
+        .color-6 { background: linear-gradient(135deg, #16a085, #27ae60); }
+        
+        @media (max-width: 768px) {
+            .units-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .unit-card {
+                margin-bottom: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Ciudadanía y Valores</h1>
+            <p class="subtitle">Segundo Año de Bachillerato - Programa de Estudios 2024</p>
+            <p>Ministerio de Educación, Ciencia y Tecnología - El Salvador</p>
+        </div>
+    </header>
+    
+    <main class="container">
+        <section id="welcome">
+            <div class="intro">
+                <p>El programa de Ciudadanía y Valores para segundo año de bachillerato busca formar ciudadanos críticos, conscientes de su realidad histórica y capaces de participar activamente en la transformación de su entorno. A través de seis unidades didácticas, los estudiantes desarrollarán competencias para analizar la realidad salvadoreña desde perspectivas geográficas, históricas y de participación ciudadana.</p>
+            </div>
+        </section>
+        
+        <section id="units-overview">
+            <h2>Unidades Didácticas</h2>
+            <p class="intro">Explora cada una de las unidades del programa haciendo clic en los enlaces correspondientes:</p>
+            
+            <div class="units-grid">
+                <!-- Unidad 1 -->
+                <div class="unit-card">
+                    <div class="unit-image color-1">
+                        <!-- Espacio para imagen de la Unidad 1 -->
+                        <img src="economia.jpg" alt="Derechos Humanos en El Salvador" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="unit-content">
+                        <div class="unit-number">1</div>
+                        <h3 class="unit-title">Geografía Económica de El Salvador</h3>
+                        <p class="unit-description">Análisis de la estructura productiva, sectores económicos y desafíos del desarrollo económico nacional en el contexto global.</p>
+                        <a href="Unidad1.html" class="unit-link">
+                            Explorar Unidad
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="9 18 15 12 9 6"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Unidad 2 -->
+                <div class="unit-card">
+                    <div class="unit-image color-2">
+                        <!-- Espacio para imagen de la Unidad 2 -->
+                        <div class="image-placeholder">Imagen: Dinámicas Poblacionales</div>
+                    </div>
+                    <div class="unit-content">
+                        <div class="unit-number">2</div>
+                        <h3 class="unit-title">Dinámicas Poblacionales y Desarrollo Humano</h3>
+                        <p class="unit-description">Estudio de la estructura demográfica, condiciones de vida, migración y políticas de desarrollo humano en El Salvador.</p>
+                        <a href="Unidad2.html" class="unit-link">
+                            Explorar Unidad
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="9 18 15 12 9 6"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Unidad 3 -->
+                <div class="unit-card">
+                    <div class="unit-image color-3">
+                        <!-- Espacio para imagen de la Unidad 3 -->
+                        <div class="image-placeholder">Imagen: Gobiernos Militares</div>
+                    </div>
+                    <div class="unit-content">
+                        <div class="unit-number">3</div>
+                        <h3 class="unit-title">Los Gobiernos Militares en el Siglo XX</h3>
+                        <p class="unit-description">Análisis del período autoritario, el Martinato, los gobiernos reformistas y sus consecuencias en la historia salvadoreña.</p>
+                        <a href="Unidad3.html" class="unit-link">
+                            Explorar Unidad
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="9 18 15 12 9 6"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Unidad 4 -->
+                <div class="unit-card">
+                    <div class="unit-image color-4">
+                        <!-- Espacio para imagen de la Unidad 4 -->
+                        <img src="crisis.jpeg" alt="Derechos Humanos en El Salvador" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="unit-content">
+                        <div class="unit-number">4</div>
+                        <h3 class="unit-title">Crisis, Guerra Civil y Procesos de Transformación</h3>
+                        <p class="unit-description">Estudio del conflicto armado, sus causas, desarrollo, consecuencias y los procesos de posguerra en la sociedad salvadoreña.</p>
+                        <a href="Unidad4.html" class="unit-link">
+                            Explorar Unidad
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="9 18 15 12 9 6"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Unidad 5 -->
+                <div class="unit-card">
+                    <div class="unit-image color-5">
+                        <!-- Espacio para imagen de la Unidad 5 -->
+                        <img src="derechos.jpg" alt="Derechos Humanos en El Salvador" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="unit-content">
+                        <div class="unit-number">5</div>
+                        <h3 class="unit-title">Los Derechos Humanos: Aportes y Desafíos</h3>
+                        <p class="unit-description">Análisis del marco normativo, mecanismos de protección y desafíos contemporáneos en la defensa de los derechos humanos.</p>
+                        <a href="Unidad5.html" class="unit-link">
+                            Explorar Unidad
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="9 18 15 12 9 6"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Unidad 6 -->
+                <div class="unit-card">
+                    <div class="unit-image color-6">
+                        <!-- Espacio para imagen de la Unidad 6 -->
+                        <div class="image-placeholder">Imagen: Sociedad del Conocimiento</div>
+                    </div>
+                    <div class="unit-content">
+                        <div class="unit-number">6</div>
+                        <h3 class="unit-title">Sociedad del Conocimiento y Desarrollo Juvenil</h3>
+                        <p class="unit-description">Oportunidades, desafíos y herramientas para el empoderamiento juvenil en la era digital y construcción de proyectos de vida.</p>
+                        <a href="Unidad6.html" class="unit-link">
+                            Explorar Unidad
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="9 18 15 12 9 6"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="program-details">
+            <div class="program-info">
+                <h2>Acerca del Programa</h2>
+                <p class="intro">El programa de Ciudadanía y Valores para Educación Media se enmarca en el Plan "Mi Nueva Escuela" y busca desarrollar competencias para la formación de una ciudadanía crítica, participativa y comprometida con el desarrollo nacional.</p>
+                
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="info-icon">📚</div>
+                        <div class="info-title">Enfoque Curricular</div>
+                        <p>Constructivista, humanista y socialmente comprometido</p>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">🎯</div>
+                        <div class="info-title">Competencias</div>
+                        <p>Pensamiento geográfico, histórico y participación ciudadana</p>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">⏱️</div>
+                        <div class="info-title">Duración</div>
+                        <p>40 semanas lectivas, 5 horas semanales</p>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">🌟</div>
+                        <div class="info-title">Ejes Integradores</div>
+                        <p>Derechos humanos, interculturalidad, sostenibilidad y participación</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>Programa de Estudios de Ciudadanía y Valores - Educación Media 2024</p>
+            <p>Ministerio de Educación, Ciencia y Tecnología - El Salvador</p>
+            <p>Material en validación - Proyecto "Mi Nueva Escuela"</p>
+        </div>
+    </footer>
+
+    <script>
+        // Script para facilitar la adición de imágenes
+        document.addEventListener('DOMContentLoaded', function() {
+            const imagePlaceholders = document.querySelectorAll('.unit-image');
+            
+            imagePlaceholders.forEach(placeholder => {
+                placeholder.addEventListener('click', function() {
+                    // En un entorno real, aquí iría la lógica para cargar una imagen
+                    // Por ahora, mostramos un mensaje informativo
+                    alert('Las imagenes estan sujetas a derechos de autor, las imagenes fueron utilizadas con fines educativos');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

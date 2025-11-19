@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unidad 6: La Sociedad del Conocimiento y Espacios para el Desarrollo de la Juventud</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #34495e;
+            --text: #2c3e50;
+            --background: #f9f9f9;
+            --success: #27ae60;
+            --tertiary: #9b59b6;
+            --historical: #d35400;
+            --conflict: #c0392b;
+            --rights: #2980b9;
+            --knowledge: #16a085;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.7;
+            font-size: 18px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            color: white;
+            padding: 2.5rem 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: cover;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .home-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: white;
+            text-decoration: none;
+            padding: 0.7rem 1.2rem;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .home-btn:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+        }
+        
+        h1 {
+            font-size: 2.4rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        
+        h2 {
+            color: var(--primary);
+            margin: 2.5rem 0 1.5rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 3px solid var(--knowledge);
+            font-size: 2.2rem;
+        }
+        
+        h3 {
+            color: var(--dark);
+            margin: 2rem 0 1rem;
+            font-size: 1.8rem;
+        }
+        
+        h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .unit-badge {
+            display: inline-block;
+            background: var(--knowledge);
+            color: white;
+            padding: 0.5rem 1.2rem;
+            border-radius: 30px;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .subtitle {
+            font-size: 1.4rem;
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .intro {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.12);
+        }
+        
+        .unit-header {
+            border-left: 6px solid var(--knowledge);
+        }
+        
+        .competence {
+            background-color: rgba(22, 160, 133, 0.15);
+            padding: 1.8rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+            font-size: 1.3rem;
+            line-height: 1.8;
+            border-left: 4px solid var(--knowledge);
+        }
+        
+        .content-section {
+            margin: 2rem 0;
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+        
+        .content-item {
+            background-color: var(--light);
+            padding: 1.8rem;
+            border-radius: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .content-item h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .indicators {
+            background-color: rgba(231, 76, 60, 0.1);
+            padding: 1.8rem;
+            border-radius: 10px;
+            margin-top: 1.8rem;
+            font-size: 1.2rem;
+            border-left: 4px solid var(--accent);
+        }
+        
+        .attitudes {
+            background-color: rgba(46, 204, 113, 0.1);
+            padding: 1.8rem;
+            border-radius: 10px;
+            margin-top: 1.8rem;
+            font-size: 1.2rem;
+            border-left: 4px solid var(--success);
+        }
+        
+        .topic-content {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            margin: 1.5rem 0;
+        }
+        
+        .topic-content p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .opportunity-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .opportunity-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-top: 4px solid var(--knowledge);
+        }
+        
+        .opportunity-title {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            font-size: 1.3rem;
+        }
+        
+        .digital-skills {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .skill-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid var(--secondary);
+        }
+        
+        .skill-title {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-top: 4px solid var(--knowledge);
+        }
+        
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            font-size: 1.1rem;
+            color: var(--dark);
+        }
+        
+        .activity-box {
+            background-color: rgba(22, 160, 133, 0.05);
+            border-left: 4px solid var(--knowledge);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .activity-title {
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            color: var(--primary);
+        }
+        
+        .youth-project {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--accent);
+        }
+        
+        .project-title {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            font-size: 1.3rem;
+        }
+        
+        .quote {
+            font-style: italic;
+            border-left: 3px solid var(--knowledge);
+            padding-left: 1rem;
+            margin: 1rem 0;
+            color: #555;
+        }
+        
+        .challenge-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .challenge-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-top: 4px solid var(--accent);
+        }
+        
+        .challenge-title {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .life-project {
+            background: linear-gradient(135deg, #27ae60, #2ecc71);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+        }
+        
+        footer {
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 2.5rem 0;
+            margin-top: 3rem;
+            font-size: 1.2rem;
+        }
+        
+        .unit-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #eee;
+        }
+        
+        .nav-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            background: var(--knowledge);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-btn:hover {
+            background: var(--primary);
+            transform: translateY(-2px);
+        }
+        
+        .development-section {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-left: 6px solid var(--secondary);
+        }
+        
+        @media (max-width: 768px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .card {
+                padding: 1.8rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .unit-nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .nav-btn {
+                justify-content: center;
+            }
+            
+            .opportunity-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .digital-skills {
+                grid-template-columns: 1fr;
+            }
+            
+            .challenge-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="nav-container">
+                <a href="index.html" class="home-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                    Volver al Inicio
+                </a>
+                <div class="unit-badge">Unidad 6</div>
+            </div>
+            <h1>La Sociedad del Conocimiento y Espacios para el Desarrollo de la Juventud</h1>
+            <p class="subtitle">Oportunidades, desafíos y herramientas para el empoderamiento juvenil en la era digital</p>
+        </div>
+    </header>
+    
+    <main class="container">
+        <section id="unit-overview">
+            <div class="card unit-header">
+                <div class="intro">
+                    <p>Esta unidad examina las oportunidades que ofrece la sociedad del conocimiento para el desarrollo juvenil, analizando el uso de tecnologías, la construcción de ciudadanía digital, los espacios de participación y la elaboración de proyectos de vida en el contexto salvadoreño.</p>
+                </div>
+                
+                <div class="competence">
+                    <p><strong>Competencia de unidad:</strong> Promover las oportunidades de desarrollo de la juventud mediante el empoderamiento y desarrollo de habilidades de la sociedad de la información para el cumplimiento del proyecto de vida.</p>
+                </div>
+                
+                <div class="highlight-box">
+                    <h3>La Juventud en la Era Digital</h3>
+                    <p>Las nuevas generaciones tienen la oportunidad histórica de aprovechar las herramientas digitales para su desarrollo personal, profesional y comunitario, transformando desafíos en oportunidades de crecimiento.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="knowledge-society">
+            <h2>La Sociedad del Conocimiento en El Salvador</h2>
+            
+            <div class="card">
+                <div class="topic-content">
+                    <p>La sociedad del conocimiento se caracteriza por la centralidad de la información, el conocimiento y las tecnologías digitales en todos los ámbitos de la vida social, económica y cultural. En El Salvador, este paradigma ofrece oportunidades sin precedentes para el desarrollo, aunque también plantea desafíos significativos relacionados con la brecha digital y la preparación de la población para aprovechar estas transformaciones.</p>
+                    
+                    <p>El acceso a internet y a tecnologías de la información y comunicación (TIC) ha crecido significativamente en El Salvador, aunque persisten importantes desigualdades. Mientras en las áreas urbanas la conectividad es relativamente alta, en las zonas rurales el acceso sigue siendo limitado, afectando especialmente a la población joven que busca oportunidades de educación y empleo.</p>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-value">68%</div>
+                            <div class="stat-label">Población con acceso a internet</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">32%</div>
+                            <div class="stat-label">Brecha digital rural-urbana</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">45%</div>
+                            <div class="stat-label">Jóvenes que usan internet para educación</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">28%</div>
+                            <div class="stat-label">Hogares con computadora en zonas rurales</div>
+                        </div>
+                    </div>
+                    
+                    <p>Las políticas públicas orientadas al desarrollo de la sociedad del conocimiento en El Salvador incluyen iniciativas como "Conectándonos con el Futuro", que busca expandir la infraestructura digital, y programas de alfabetización digital en centros educativos. Sin embargo, el desafío fundamental consiste en transformar el acceso tecnológico en capacidades efectivas para la generación de conocimiento y valor agregado.</p>
+                    
+                    <div class="activity-box">
+                        <div class="activity-title">Diagnóstico Comunitario</div>
+                        <p>Realiza un diagnóstico del acceso y uso de tecnologías en tu comunidad. Identifica las principales oportunidades y barreras que enfrentan los jóvenes, y propone soluciones creativas para reducir la brecha digital y aprovechar las herramientas disponibles.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="digital-opportunities">
+            <h2>Oportunidades Digitales para el Desarrollo Juvenil</h2>
+            
+            <div class="card">
+                <div class="topic-content">
+                    <p>Las tecnologías digitales ofrecen a la juventud salvadoreña oportunidades transformadoras en diversos ámbitos. Desde el acceso a educación de calidad hasta el emprendimiento digital, estas herramientas pueden ser catalizadoras del desarrollo personal y comunitario cuando se utilizan de manera estratégica y crítica.</p>
+                    
+                    <div class="opportunity-grid">
+                        <div class="opportunity-card">
+                            <div class="opportunity-title">Educación y Aprendizaje Continuo</div>
+                            <p>Plataformas de educación en línea, cursos masivos abiertos (MOOCs), tutoriales interactivos y bibliotecas digitales que democratizan el acceso al conocimiento y permiten el aprendizaje a lo largo de toda la vida.</p>
+                        </div>
+                        
+                        <div class="opportunity-card">
+                            <div class="opportunity-title">Empleo y Emprendimiento</div>
+                            <p>Teletrabajo, freelancing, comercio electrónico, marketing digital y desarrollo de aplicaciones que crean nuevas oportunidades laborales y empresariales independientemente de la ubicación geográfica.</p>
+                        </div>
+                        
+                        <div class="opportunity-card">
+                            <div class="opportunity-title">Participación Ciudadana</div>
+                            <p>Redes sociales, plataformas de incidencia pública, herramientas de organización comunitaria y medios digitales que amplifican las voces juveniles y facilitan la participación en asuntos públicos.</p>
+                        </div>
+                        
+                        <div class="opportunity-card">
+                            <div class="opportunity-title">Innovación Social</div>
+                            <p>Desarrollo de soluciones tecnológicas a problemas comunitarios, apps para el bien social, plataformas de voluntariado digital y proyectos colaborativos que abordan desafíos locales con perspectiva global.</p>
+                        </div>
+                    </div>
+                    
+                    <p>El emprendimiento digital representa una oportunidad particularmente relevante para la juventud salvadoreña. Con menores barreras de entrada que los negocios tradicionales, los emprendimientos digitales pueden desarrollarse con recursos limitados y tener alcance global. Ejemplos exitosos incluyen desarrolladores de software, creadores de contenido, especialistas en marketing digital y consultores en transformación digital.</p>
+                    
+                    <div class="youth-project">
+                        <div class="project-title">Caso de Estudio: Jóvenes Programadores</div>
+                        <p>Iniciativa que capacita a jóvenes de comunidades vulnerables en desarrollo de software, conectándolos con oportunidades laborales en la industria tecnológica nacional e internacional. Los participantes no solo adquieren habilidades técnicas, sino también competencias blandas y orientación profesional.</p>
+                        <div class="quote">
+                            "Aprendí que con una computadora y conexión a internet puedo crear oportunidades no solo para mí, sino para mi comunidad. La programación es como un superpoder en el mundo digital."
+                        </div>
+                        <p><em>Testimonio de participante del programa</em></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="digital-citizenship">
+            <h2>Ciudadanía Digital y Uso Responsable de Tecnologías</h2>
+            
+            <div class="card">
+                <div class="topic-content">
+                    <p>La ciudadanía digital implica el uso responsable, crítico y creativo de las tecnologías para participar activamente en la sociedad. Va más allá del simple acceso a herramientas digitales, requiriendo el desarrollo de competencias específicas y una comprensión profunda de los derechos y responsabilidades en el entorno digital.</p>
+                    
+                    <div class="digital-skills">
+                        <div class="skill-card">
+                            <div class="skill-title">Alfabetización Digital</div>
+                            <p>Habilidades básicas para usar dispositivos, software y navegar en internet de manera efectiva y segura.</p>
+                        </div>
+                        
+                        <div class="skill-card">
+                            <div class="skill-title">Pensamiento Crítico</div>
+                            <p>Capacidad para evaluar la credibilidad de la información en línea, identificar noticias falsas y reconocer sesgos.</p>
+                        </div>
+                        
+                        <div class="skill-card">
+                            <div class="skill-title">Seguridad Digital</div>
+                            <p>Conocimientos para proteger la privacidad, gestionar contraseñas, identificar amenazas cibernéticas y prevenir el acoso en línea.</p>
+                        </div>
+                        
+                        <div class="skill-card">
+                            <div class="skill-title">Comunicación Efectiva</div>
+                            <p>Habilidades para comunicarse de manera respetuosa y constructiva en diferentes plataformas y contextos digitales.</p>
+                        </div>
+                        
+                        <div class="skill-card">
+                            <div class="skill-title">Creatividad e Innovación</div>
+                            <p>Capacidad para usar herramientas digitales para crear contenido original, resolver problemas y generar nuevas ideas.</p>
+                        </div>
+                        
+                        <div class="skill-card">
+                            <div class="skill-title">Colaboración Digital</div>
+                            <p>Habilidades para trabajar en equipo utilizando herramientas colaborativas y gestionar proyectos en entornos virtuales.</p>
+                        </div>
+                    </div>
+                    
+                    <p>Los derechos digitales son una extensión de los derechos humanos en el entorno digital. Incluyen el derecho a la privacidad, a la libertad de expresión en línea, al acceso a internet, a la protección de datos personales y a la educación digital. En El Salvador, aunque existe un marco normativo incipiente, persisten desafíos en la protección efectiva de estos derechos, especialmente para grupos vulnerables.</p>
+                    
+                    <div class="activity-box">
+                        <div class="activity-title">Código de Ética Digital</div>
+                        <p>Elabora un código de ética para el uso de tecnologías en tu comunidad educativa. Incluye principios sobre privacidad, respeto, veracidad de la información y uso responsable de redes sociales. Propón mecanismos para su implementación y seguimiento.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="youth-participation">
+            <h2>Espacios de Participación y Desarrollo Juvenil</h2>
+            
+            <div class="card">
+                <div class="topic-content">
+                    <p>La participación juvenil en espacios formales e informales es fundamental para el desarrollo de una ciudadanía activa y para la incidencia en decisiones que afectan a las nuevas generaciones. En El Salvador, existen diversos mecanismos y espacios donde la juventud puede ejercer su derecho a participar y contribuir al desarrollo nacional.</p>
+                    
+                    <div class="development-section">
+                        <h4>Espacios Formales de Participación Juvenil</h4>
+                        <ul>
+                            <li><strong>Consejos Municipales de la Juventud:</strong> Instancias de participación local donde jóvenes representantes discuten y proponen políticas municipales.</li>
+                            <li><strong>Parlemento Juvenil:</strong> Ejercicio de simulación parlamentaria que permite a jóvenes conocer el funcionamiento del sistema legislativo.</li>
+                            <li><strong>Consejos Estudiantiles:</strong> Organizaciones representativas en centros educativos que fomentan el liderazgo y la participación.</li>
+                            <li><strong>Organizaciones Juveniles:</strong> Colectivos y asociaciones que trabajan en temas específicos como medio ambiente, derechos humanos, arte y cultura.</li>
+                            <li><strong>Voluntariado:</strong> Programas de servicio comunitario que permiten a jóvenes contribuir al desarrollo local.</li>
+                        </ul>
+                    </div>
+                    
+                    <p>La participación juvenil efectiva requiere de condiciones habilitantes como acceso a información, capacidades de incidencia, recursos adecuados y reconocimiento institucional. Las políticas públicas de juventud, como el Plan El Salvador Educado y la Política Nacional de Juventud, buscan crear estas condiciones, aunque su implementación enfrenta desafíos de coordinación y sostenibilidad.</p>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-value">62%</div>
+                            <div class="stat-label">Jóvenes interesados en participar</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">35%</div>
+                            <div class="stat-label">Jóvenes que conocen espacios de participación</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">28%</div>
+                            <div class="stat-label">Jóvenes que han participado activamente</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">2019</div>
+                            <div class="stat-label">Año de creación de Política Nacional de Juventud</div>
+                        </div>
+                    </div>
+                    
+                    <p>La combinación de participación presencial y digital amplifica el impacto de las iniciativas juveniles. Las herramientas digitales permiten organizar campañas, recoger firmas, difundir información y coordinar acciones de manera más eficiente, mientras que los espacios presenciales facilitan la construcción de confianza y el trabajo colaborativo profundo.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="life-project">
+            <h2>Proyecto de Vida y Desarrollo Personal</h2>
+            
+            <div class="card">
+                <div class="topic-content">
+                    <p>El proyecto de vida es un plan personal que integra las aspiraciones, valores, habilidades y oportunidades de una persona para dirigir su desarrollo hacia metas significativas. En el contexto de la sociedad del conocimiento, la elaboración de un proyecto de vida requiere adaptabilidad, aprendizaje continuo y capacidad para aprovechar las oportunidades que ofrece el entorno digital.</p>
+                    
+                    <div class="life-project">
+                        <h3>Componentes de un Proyecto de Vida Integral</h3>
+                        <ul>
+                            <li><strong>Autoconocimiento:</strong> Identificación de fortalezas, debilidades, valores e intereses personales.</li>
+                            <li><strong>Metas claras:</strong> Objetivos específicos, medibles, alcanzables, relevantes y con tiempo definido.</li>
+                            <li><strong>Plan de acción:</strong> Estrategias concretas y pasos específicos para alcanzar las metas.</li>
+                            <li><strong>Recursos identificados:</strong> Herramientas, apoyos y oportunidades disponibles.</li>
+                            <li><strong>Evaluación continua:</strong> Mecanismos para revisar el progreso y ajustar el plan según sea necesario.</li>
+                        </ul>
+                    </div>
+                    
+                    <p>La gestión del tiempo y la responsabilidad financiera son competencias esenciales para la realización del proyecto de vida. En un mundo caracterizado por la sobrecarga de información y las distracciones digitales, la capacidad de priorizar tareas, establecer límites y mantener el enfoque es crucial. De igual manera, la educación financiera permite tomar decisiones informadas sobre el uso de recursos, el ahorro y la inversión en el propio desarrollo.</p>
+                    
+                    <div class="challenge-grid">
+                        <div class="challenge-card">
+                            <div class="challenge-title">Gestión del Tiempo</div>
+                            <p>Desarrollar habilidades para priorizar tareas, establecer rutinas productivas y equilibrar el uso de tecnologías con otras actividades importantes.</p>
+                        </div>
+                        
+                        <div class="challenge-card">
+                            <div class="challenge-title">Responsabilidad Financiera</div>
+                            <p>Adquirir conocimientos sobre presupuesto, ahorro, inversión y consumo responsable para la sostenibilidad del proyecto de vida.</p>
+                        </div>
+                        
+                        <div class="challenge-card">
+                            <div class="challenge-title">Adaptabilidad</div>
+                            <p>Desarrollar capacidad para ajustar el proyecto de vida ante cambios en el entorno, nuevas oportunidades o circunstancias imprevistas.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="activity-box">
+                        <div class="activity-title">Mi Proyecto de Vida</div>
+                        <p>Elabora tu propio proyecto de vida considerando tus intereses, habilidades y el contexto de la sociedad del conocimiento. Incluye metas a corto, mediano y largo plazo en las dimensiones personal, académica, profesional y comunitaria. Identifica los recursos y apoyos que necesitarás y establece indicadores para evaluar tu progreso.</p>
+                    </div>
+                    
+                    <p>El desarrollo de un proyecto de vida no es un proceso lineal sino iterativo, que requiere reflexión constante y ajustes según las experiencias y aprendizajes. La sociedad del conocimiento ofrece herramientas valiosas para este proceso, desde aplicaciones de planificación hasta comunidades de apoyo en línea, pero el factor determinante sigue siendo la claridad de propósito y la consistencia en la acción.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="learning-content">
+            <h2>Contenidos de Aprendizaje</h2>
+            
+            <div class="card">
+                <div class="content-section">
+                    <div class="content-grid">
+                        <div class="content-item">
+                            <h4>Contenidos Conceptuales</h4>
+                            <ul>
+                                <li>Oportunidades de la sociedad del conocimiento para el desarrollo de El Salvador</li>
+                                <li>El uso de nuevas tecnologías para el empoderamiento juvenil</li>
+                                <li>Espacios de desarrollo a través de herramientas digitales</li>
+                                <li>Ciudadanía digital: derechos y responsabilidades</li>
+                                <li>La sociedad del conocimiento y nuevas tecnologías en función del cuidado del medio ambiente</li>
+                                <li>Iniciativas para la construcción de la ciudadanía ambiental</li>
+                                <li>Fortalezas y oportunidades para los jóvenes en América Latina y El Salvador</li>
+                                <li>Proyección de futuro de la adolescencia y juventud</li>
+                                <li>Desafíos para la convivencia intercultural en El Salvador</li>
+                                <li>Retos de la juventud para la convivencia intercultural</li>
+                                <li>La promoción de la cultura de paz y el manejo de emociones</li>
+                                <li>Rechazo a cualquier forma y expresión de violencia</li>
+                                <li>Cultura de paz en entornos digitales y presenciales</li>
+                                <li>Espacios de desarrollo y compromisos personales</li>
+                                <li>Proyecto de vida personal y social</li>
+                                <li>La responsabilidad financiera para el cumplimiento de metas</li>
+                                <li>Gestión del tiempo y recursos para el desarrollo personal</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="content-item">
+                            <h4>Contenidos Procedimentales</h4>
+                            <ul>
+                                <li>Análisis sobre las oportunidades de las tecnologías como espacios de empoderamiento para la juventud</li>
+                                <li>Evaluación de los espacios de participación ciudadana para el fomento de la conciencia ambiental</li>
+                                <li>Identificación de iniciativas para la construcción de la ciudadanía ambiental</li>
+                                <li>Comprensión de las fortalezas y oportunidades de la juventud como herramientas para el cumplimiento de proyecciones de futuro</li>
+                                <li>Interpretación de los desafíos para el fomento de la convivencia intercultural</li>
+                                <li>Manifestación de rechazo ante cualquier tipo de violencia</li>
+                                <li>Propuesta de formas de convivencia a partir del diálogo y escucha activa</li>
+                                <li>Promoción de la cultura de paz a través del manejo de emociones</li>
+                                <li>Valoración de los espacios de desarrollo y compromisos personales para el cumplimiento del proyecto de vida</li>
+                                <li>Comprensión de la importancia de la responsabilidad financiera para el cumplimiento de metas</li>
+                                <li>Diseño y gestión del proyecto de vida personal</li>
+                                <li>Aplicación de estrategias de gestión del tiempo y recursos</li>
+                                <li>Desarrollo de habilidades de ciudadanía digital</li>
+                                <li>Participación activa en espacios de desarrollo juvenil</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="indicators">
+                    <h4>Indicadores de Logro</h4>
+                    <ul>
+                        <li><strong>6.1</strong> Describe las oportunidades del uso de las tecnologías para el empoderamiento de la juventud fomentando la ciudadanía digital en El Salvador.</li>
+                        <li><strong>6.2</strong> Se involucra de forma activa en los espacios de participación ciudadana para promover el cuidado del medio ambiente y el fomento de la conciencia ambiental.</li>
+                        <li><strong>6.3</strong> Promueve iniciativas para la construcción de la ciudadanía ambiental utilizando las nuevas tecnologías como espacios de participación ciudadana.</li>
+                        <li><strong>6.4</strong> Identifica las fortalezas y oportunidades para la juventud en América Latina y El Salvador como herramientas para el cumplimiento de las proyecciones de futuro.</li>
+                        <li><strong>6.5</strong> Fomenta la convivencia intercultural respetando las diferentes expresiones culturales que se dan en el país y en la localidad.</li>
+                        <li><strong>6.6</strong> Rechaza cualquier tipo de violencia y propone formas de convivencia a partir del diálogo y escucha activa.</li>
+                        <li><strong>6.7</strong> Emplea mecanismos para la promoción de la cultura de paz gestionando las emociones en situaciones diversas.</li>
+                        <li><strong>6.8</strong> Participa en espacios para el desarrollo de la juventud asumiendo compromisos personales para el cumplimiento del proyecto de vida.</li>
+                        <li><strong>6.9</strong> Aplica elementos de responsabilidad financiera para el cumplimiento de metas personales y sociales.</li>
+                    </ul>
+                </div>
+                
+                <div class="attitudes">
+                    <h4>Contenidos Actitudinales</h4>
+                    <ul>
+                        <li>Participación activa como agente de transformación social en las diferentes dimensiones de la vida personal y colectiva.</li>
+                        <li>Aprovechamiento de las oportunidades de desarrollo para la juventud y actuación acorde con el proyecto de vida.</li>
+                        <li>Compromiso con el cumplimiento de las aspiraciones personales y sociales.</li>
+                        <li>Valoración crítica de las tecnologías como herramientas de desarrollo.</li>
+                        <li>Respeto por la diversidad cultural en entornos presenciales y digitales.</li>
+                        <li>Promoción activa de la cultura de paz y rechazo a la violencia.</li>
+                        <li>Responsabilidad en el manejo de recursos personales, financieros y temporales.</li>
+                        <li>Actitud emprendedora y proactiva frente a los desafíos del desarrollo.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <section id="resources">
+            <h2>Recursos Adicionales</h2>
+            
+            <div class="card">
+                <div class="topic-content">
+                    <h3>Fuentes de Información</h3>
+                    <ul>
+                        <li>Ministerio de Educación, Ciencia y Tecnología - Programas de innovación educativa</li>
+                        <li>Secretaría de Innovación - Estrategias de transformación digital</li>
+                        <li>Instituto Nacional de la Juventud - Programas de desarrollo juvenil</li>
+                        <li>Organizaciones internacionales - UNESCO, PNUD, BID (recursos sobre sociedad del conocimiento)</li>
+                        <li>Plataformas de educación en línea - Coursera, edX, Khan Academy, Academia</li>
+                    </ul>
+                    
+                    <h3>Términos Clave</h3>
+                    <ul>
+                        <li><strong>Sociedad del conocimiento:</strong> Sociedad donde la creación, distribución y uso del conocimiento son factores principales de producción y desarrollo.</li>
+                        <li><strong>Brecha digital:</strong> Desigualdad en el acceso, uso o impacto de las tecnologías de la información y comunicación.</li>
+                        <li><strong>Ciudadanía digital:</strong> Normas de comportamiento apropiado y responsable respecto al uso de la tecnología.</li>
+                        <li><strong>Emprendimiento digital:</strong> Creación de negocios basados principalmente en tecnologías digitales.</li>
+                        <li><strong>Proyecto de vida:</strong> Plan personal que integra metas, valores y estrategias para el desarrollo integral.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <div class="unit-nav">
+            <a href="unidad5.html" class="nav-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+                Unidad 5: Derechos Humanos
+            </a>
+            <a href="index.html" class="nav-btn">
+                Página Principal
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+            </a>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>Programa de Estudios de Ciudadanía y Valores - Educación Media 2024</p>
+            <p>Ministerio de Educación, Ciencia y Tecnología - El Salvador</p>
+            <p>Material en validación - Proyecto "Mi Nueva Escuela"</p>
+        </div>
+    </footer>
+</body>
+</html>

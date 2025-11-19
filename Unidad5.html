@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unidad 5: Los Derechos Humanos - Aportes y Desafíos</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #34495e;
+            --text: #2c3e50;
+            --background: #f9f9f9;
+            --success: #27ae60;
+            --tertiary: #9b59b6;
+            --historical: #d35400;
+            --conflict: #c0392b;
+            --rights: #2980b9;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.7;
+            font-size: 18px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            color: white;
+            padding: 2.5rem 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: cover;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .home-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: white;
+            text-decoration: none;
+            padding: 0.7rem 1.2rem;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .home-btn:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+        }
+        
+        h1 {
+            font-size: 2.6rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        
+        h2 {
+            color: var(--primary);
+            margin: 2.5rem 0 1.5rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 3px solid var(--rights);
+            font-size: 2.2rem;
+        }
+        
+        h3 {
+            color: var(--dark);
+            margin: 2rem 0 1rem;
+            font-size: 1.8rem;
+        }
+        
+        h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .unit-badge {
+            display: inline-block;
+            background: var(--rights);
+            color: white;
+            padding: 0.5rem 1.2rem;
+            border-radius: 30px;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .subtitle {
+            font-size: 1.4rem;
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .intro {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.12);
+        }
+        
+        .unit-header {
+            border-left: 6px solid var(--rights);
+        }
+        
+        .competence {
+            background-color: rgba(41, 128, 185, 0.15);
+            padding: 1.8rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+            font-size: 1.3rem;
+            line-height: 1.8;
+            border-left: 4px solid var(--rights);
+        }
+        
+        .content-section {
+            margin: 2rem 0;
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+        
+        .content-item {
+            background-color: var(--light);
+            padding: 1.8rem;
+            border-radius: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .content-item h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .indicators {
+            background-color: rgba(231, 76, 60, 0.1);
+            padding: 1.8rem;
+            border-radius: 10px;
+            margin-top: 1.8rem;
+            font-size: 1.2rem;
+            border-left: 4px solid var(--accent);
+        }
+        
+        .attitudes {
+            background-color: rgba(46, 204, 113, 0.1);
+            padding: 1.8rem;
+            border-radius: 10px;
+            margin-top: 1.8rem;
+            font-size: 1.2rem;
+            border-left: 4px solid var(--success);
+        }
+        
+        .topic-content {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            margin: 1.5rem 0;
+        }
+        
+        .topic-content p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .rights-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .rights-category {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-top: 4px solid var(--rights);
+        }
+        
+        .category-title {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            font-size: 1.3rem;
+        }
+        
+        .category-list {
+            list-style-type: none;
+        }
+        
+        .category-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .category-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .mechanism-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .mechanism-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid var(--secondary);
+        }
+        
+        .mechanism-title {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-top: 4px solid var(--rights);
+        }
+        
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            font-size: 1.1rem;
+            color: var(--dark);
+        }
+        
+        .activity-box {
+            background-color: rgba(41, 128, 185, 0.05);
+            border-left: 4px solid var(--rights);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .activity-title {
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            color: var(--primary);
+        }
+        
+        .defender-card {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--accent);
+        }
+        
+        .defender-name {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+            font-size: 1.3rem;
+        }
+        
+        .quote {
+            font-style: italic;
+            border-left: 3px solid var(--rights);
+            padding-left: 1rem;
+            margin: 1rem 0;
+            color: #555;
+        }
+        
+        .challenge-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .challenge-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-top: 4px solid var(--accent);
+        }
+        
+        .challenge-title {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        footer {
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 2.5rem 0;
+            margin-top: 3rem;
+            font-size: 1.2rem;
+        }
+        
+        .unit-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #eee;
+        }
+        
+        .nav-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            background: var(--rights);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-btn:hover {
+            background: var(--primary);
+            transform: translateY(-2px);
+        }
+        
+        .institution-section {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-left: 6px solid var(--secondary);
+        }
+        
+        @media (max-width: 768px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .card {
+                padding: 1.8rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .unit-nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .nav-btn {
+                justify-content: center;
+            }
+            
+            .rights-categories {
+                grid-template-columns: 1fr;
+            }
+            
+            .mechanism-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .challenge-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="nav-container">
+                <a href="index.html" class="home-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                    Volver al Inicio
+                </a>
+                <div class="unit-badge">Unidad 5</div>
+            </div>
+            <h1>Los Derechos Humanos: Aportes y Desafíos</h1>
+            <p class="subtitle">Análisis del marco normativo, mecanismos de protección y desafíos contemporáneos en la defensa de los derechos humanos</p>
+        </div>
+    </header>
+    
+    <main class="container">
+        <section id="unit-overview">
+            <div class="card unit-header">
+                <div class="intro">
+                    <p>Esta unidad examina el marco conceptual y normativo de los derechos humanos, analizando los mecanismos de protección existentes, los desafíos contemporáneos y el rol de diferentes actores en la promoción y defensa de los derechos fundamentales en El Salvador.</p>
+                </div>
+                
+                <div class="competence">
+                    <p><strong>Competencia de unidad:</strong> Valorar el rol de los diferentes actores en el cumplimiento de los derechos humanos y en la consolidación de la democracia en El Salvador.</p>
+                </div>
+                
+                <div class="highlight-box">
+                    <h3>Fundamentos de los Derechos Humanos</h3>
+                    <p>Los derechos humanos son inherentes a todas las personas, sin distinción alguna. Su protección y promoción son esenciales para el desarrollo de sociedades democráticas, justas e inclusivas.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="conceptual-framework">
+            <h2>Marco Conceptual de los Derechos Humanos</h2>
+            
+            <div class="card">
+                <div class="topic-content">
+                    <p>Los derechos humanos se fundamentan en el principio de la dignidad inherente de todo ser humano. Son universales, inalienables, indivisibles e interdependientes. Su desarrollo histórico ha estado marcado por la lucha contra la opresión y la búsqueda de condiciones de vida dignas para todas las personas.</p>
+                    
+                    <p>La Declaración Universal de Derechos Humanos, adoptada por la Asamblea General de las Naciones Unidas en 1948, establece el marco fundamental reconocido internacionalmente. En El Salvador, los derechos humanos están reconocidos en la Constitución de la República y en los tratados internacionales ratificados por el país, que tienen jerarquía constitucional según el artículo 144 de la Carta Magna.</p>
+                    
+                    <div class="rights-categories">
+                        <div class="rights-category">
+                            <div class="category-title">Derechos Civiles y Políticos</div>
+                            <ul class="category-list">
+                                <li>Derecho a la vida y a la integridad personal</li>
+                                <li>Libertad de expresión y pensamiento</li>
+                                <li>Derecho a la participación política</li>
+                                <li>Derecho a un juicio justo</li>
+                                <li>Libertad de reunión y asociación</li>
+                                <li>Derecho a la privacidad</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="rights-category">
+                            <div class="category-title">Derechos Económicos, Sociales y Culturales</div>
+                            <ul class="category-list">
+                                <li>Derecho a la educación</li>
+                                <li>Derecho a la salud</li>
+                                <li>Derecho al trabajo digno</li>
+                                <li>Derecho a la vivienda adecuada</li>
+                                <li>Derecho a la seguridad social</li>
+                                <li>Derecho a participar en la vida cultural</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="rights-category">
+                            <div class="category-title">Derechos Colectivos y de Solidaridad</div>
+                            <ul class="category-list">
+                                <li>Derecho al desarrollo</li>
+                                <li>Derecho a un medio ambiente sano</li>
+                                <li>Derecho a la paz</li>
+                                <li>Derechos de los pueblos indígenas</li>
+                                <li>Derecho de acceso a la información</li>
+                                <li>Derecho a la autodeterminación</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <p>La evolución del concepto de derechos humanos ha llevado al reconocimiento de su indivisibilidad e interdependencia. No puede hablarse de pleno disfrute de los derechos civiles y políticos sin la realización de los derechos económicos, sociales y culturales, y viceversa. Esta comprensión integral es fundamental para abordar los desafíos contemporáneos en materia de derechos humanos.</p>
+                    
+                    <div class="activity-box">
+                        <div class="activity-title">Reflexión sobre Derechos Humanos</div>
+                        <p>Selecciona un derecho humano específico y analiza cómo se manifiesta en tu comunidad. Identifica tanto los avances en su garantía como los desafíos pendientes. Propone acciones concretas que podrías realizar para contribuir a su plena realización.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="protection-mechanisms">
+            <h2>Mecanismos de Protección de los Derechos Humanos</h2>
+            
+            <div class="card">
+                <div class="topic-content">
+                    <p>El sistema de protección de derechos humanos en El Salvador incluye mecanismos nacionales e internacionales que buscan garantizar el respeto, protección y realización de los derechos fundamentales. Estos mecanismos operan en diferentes niveles y complementan sus acciones para una protección integral.</p>
+                    
+                    <div class="mechanism-grid">
+                        <div class="mechanism-card">
+                            <div class="mechanism-title">Mecanismos Nacionales</div>
+                            <ul>
+                                <li>Procuraduría para la Defensa de los Derechos Humanos (PDDH)</li>
+                                <li>Corte Suprema de Justicia</li>
+                                <li>Fiscalía General de la República</li>
+                                <li>Asamblea Legislativa</li>
+                                <li>Instituto de Acceso a la Información Pública</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="mechanism-card">
+                            <div class="mechanism-title">Mecanismos Internacionales</div>
+                            <ul>
+                                <li>Sistema de Naciones Unidas</li>
+                                <li>Sistema Interamericano de Derechos Humanos</li>
+                                <li>Relatorías Especiales</li>
+                                <li>Exámenes Periódicos Universales</li>
+                                <li>Comités de Tratados Internacionales</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="mechanism-card">
+                            <div class="mechanism-title">Mecanismos No Jurisdiccionales</div>
+                            <ul>
+                                <li>Organizaciones de la sociedad civil</li>
+                                <li>Medios de comunicación</li>
+                                <li>Iniciativas ciudadanas</li>
+                                <li>Educación en derechos humanos</li>
+                                <li>Auditoría social</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <p>La Procuraduría para la Defensa de los Derechos Humanos (PDDH) es la institución nacional autónoma encargada de velar por la protección y promoción de los derechos humanos. Entre sus funciones se encuentran la recepción de quejas, la investigación de violaciones, la emisión de recomendaciones y la promoción de una cultura de respeto a los derechos humanos.</p>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-value">1992</div>
+                            <div class="stat-label">Creación de la PDDH</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">3,500+</div>
+                            <div class="stat-label">Quejas anuales recibidas</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">15</div>
+                            <div class="stat-label">Oficinas departamentales</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">22</div>
+                            <div class="stat-label">Tratados internacionales ratificados</div>
+                        </div>
+                    </div>
+                    
+                    <p>A nivel internacional, El Salvador ha ratificado los principales instrumentos de derechos humanos, incluyendo el Pacto Internacional de Derechos Civiles y Políticos, el Pacto Internacional de Derechos Económicos, Sociales y Culturales, y la Convención Americana sobre Derechos Humanos. Estos tratados crean obligaciones para el Estado salvadoreño y establecen mecanismos de supervisión internacional.</p>
+                    
+                    <div class="institution-section">
+                        <h4>La Procuraduría para la Defensa de los Derechos Humanos</h4>
+                        <p>Institución autónoma creada en 1992 como parte de los Acuerdos de Paz. Su mandato incluye:</p>
+                        <ul>
+                            <li>Investigar violaciones a derechos humanos</li>
+                            <li>Emitir recomendaciones a instituciones del Estado</li>
+                            <li>Promover la educación en derechos humanos</li>
+                            <li>Supervisar el respeto de derechos en centros de detención</li>
+                            <li>Elaborar informes especiales sobre situaciones específicas</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="state-role">
+            <h2>El Rol del Estado como Garante de los Derechos Humanos</h2>
+            
+            <div class="card">
+                <div class="topic-content">
+                    <p>El Estado salvadoreño tiene la obligación primordial de respetar, proteger y realizar los derechos humanos. Esta triple obligación implica abstenerse de violar los derechos, prevenir que terceros los violen, y adoptar medidas positivas para su plena realización.</p>
+                    
+                    <p>La obligación de respetar significa que el Estado debe abstenerse de interferir en el disfrute de los derechos humanos. La obligación de proteger requiere que el Estado prevenga violaciones por parte de terceros mediante legislación, regulación y acciones efectivas. La obligación de realizar implica adoptar medidas legislativas, administrativas, presupuestarias y de otra índole para hacer efectivos los derechos humanos.</p>
+                    
+                    <div class="activity-box">
+                        <div class="activity-title">Análisis de Políticas Públicas</div>
+                        <p>Selecciona una política pública específica (educación, salud, vivienda, etc.) y analiza en qué medida cumple con las obligaciones del Estado en materia de derechos humanos. Identifica avances, limitaciones y propone mejoras para una implementación más efectiva.</p>
+                    </div>
+                    
+                    <p>El principio de progresividad establece que los Estados deben avanzar continuamente hacia la plena realización de los derechos económicos, sociales y culturales. Si bien pueden enfrentar limitaciones de recursos, no pueden adoptar medidas regresivas que empeoren el disfrute de estos derechos. El principio de no discriminación es fundamental, requiriendo que los derechos se garanticen a todas las personas sin distinción.</p>
+                    
+                    <p>La rendición de cuentas y la transparencia son elementos esenciales para el cumplimiento efectivo de las obligaciones del Estado. Los mecanismos de participación ciudadana, el acceso a la información pública y la existencia de instituciones de control fortalecen la capacidad de la sociedad para exigir el cumplimiento de los derechos humanos.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="human-rights-defenders">
+            <h2>Defensores y Defensoras de Derechos Humanos</h2>
+            
+            <div class="card">
+                <div class="topic-content">
+                    <p>Los defensores y defensoras de derechos humanos son personas que, individual o colectivamente, trabajan para promover y proteger los derechos humanos. Su labor es fundamental para el avance de la democracia y la justicia, aunque frecuentemente enfrentan riesgos y desafíos significativos.</p>
+                    
+                    <div class="defender-card">
+                        <div class="defender-name">Monseñor Óscar Arnulfo Romero</div>
+                        <p>Arzobispo de San Salvador asesinado en 1980 por su defensa de los derechos humanos y su denuncia de las violaciones cometidas durante el conflicto armado. Se convirtió en símbolo de la lucha por la justicia y la dignidad humana.</p>
+                        <div class="quote">
+                            "La misión de la Iglesia es identificarse con los pobres, así la Iglesia encuentra su salvación."
+                        </div>
+                    </div>
+                    
+                    <div class="defender-card">
+                        <div class="defender-name">María Julia Hernández</div>
+                        <p>Directora de Tutela Legal del Arzobispado, organización que documentó violaciones a derechos humanos durante el conflicto armado y continuó trabajando por la justicia y la memoria histórica en la posguerra.</p>
+                        <div class="quote">
+                            "Sin memoria no hay justicia, sin justicia no hay paz, sin paz no hay desarrollo."
+                        </div>
+                    </div>
+                    
+                    <div class="defender-card">
+                        <div class="defender-name">Activistas Ambientales</div>
+                        <p>Defensores del derecho a un medio ambiente sano que han enfrentado amenazas por oponerse a proyectos extractivos y defender los recursos naturales en comunidades rurales.</p>
+                        <div class="quote">
+                            "Defender el agua es defender la vida. Nuestra lucha es por las generaciones futuras."
+                        </div>
+                    </div>
+                    
+                    <p>La Declaración sobre Defensores de Derechos Humanos de la ONU (1998) reconoce el derecho de toda persona a promover y proteger los derechos humanos. Sin embargo, en El Salvador como en muchos países, los defensores enfrentan amenazas, criminalización, vigilancia y ataques. La protección efectiva de los defensores requiere de marcos legales adecuados, políticas de prevención y mecanismos de respuesta rápida.</p>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-value">45%</div>
+                            <div class="stat-label">Aumento en agresiones a defensores (2020-2022)</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">62%</div>
+                            <div class="stat-label">Defensores que no reportan agresiones</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">78%</div>
+                            <div class="stat-label">Impunidad en casos de agresiones</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">2022</div>
+                            <div class="stat-label">Ley de Protección a Defensores aprobada</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="contemporary-challenges">
+            <h2>Desafíos Contemporáneos en Derechos Humanos</h2>
+            
+            <div class="card">
+                <div class="topic-content">
+                    <p>El Salvador enfrenta numerosos desafíos en materia de derechos humanos que requieren atención urgente y respuestas integrales. Estos desafíos reflejan tanto problemas estructurales históricos como nuevas problemáticas emergentes en el contexto de la globalización y los cambios sociales.</p>
+                    
+                    <div class="challenge-grid">
+                        <div class="challenge-card">
+                            <div class="challenge-title">Seguridad Ciudadana y Derechos Humanos</div>
+                            <p>El balance entre políticas de seguridad y el respeto a los derechos humanos representa un desafío fundamental. Medidas como los regímenes de excepción plantean interrogantes sobre el respeto al debido proceso y las garantías judiciales.</p>
+                        </div>
+                        
+                        <div class="challenge-card">
+                            <div class="challenge-title">Derechos Económicos y Sociales</div>
+                            <p>Persisten altos niveles de pobreza, desigualdad y exclusión que limitan el disfrute de derechos básicos como educación, salud, vivienda y trabajo digno para importantes segmentos de la población.</p>
+                        </div>
+                        
+                        <div class="challenge-card">
+                            <div class="challenge-title">Derechos de Grupos en Situación de Vulnerabilidad</div>
+                            <p>Mujeres, niñez, personas con discapacidad, comunidad LGBTI, pueblos indígenas y personas adultas mayores enfrentan discriminación y barreras específicas para el ejercicio de sus derechos.</p>
+                        </div>
+                        
+                        <div class="challenge-card">
+                            <div class="challenge-title">Derechos Digitales</div>
+                            <p>El avance tecnológico plantea nuevos desafíos relacionados con la privacidad, la libertad de expresión en línea, el acceso a internet y la protección de datos personales.</p>
+                        </div>
+                        
+                        <div class="challenge-card">
+                            <div class="challenge-title">Justicia Transicional</div>
+                            <p>Persisten deudas históricas en materia de verdad, justicia y reparación para las víctimas del conflicto armado, con limitados avances en la investigación y sanción de graves violaciones a derechos humanos.</p>
+                        </div>
+                        
+                        <div class="challenge-card">
+                            <div class="challenge-title">Derecho a un Medio Ambiente Sano</div>
+                            <p>La degradación ambiental, la escasez hídrica y los efectos del cambio climático afectan especialmente a las comunidades más vulnerables, generando nuevos desafíos para los derechos humanos.</p>
+                        </div>
+                    </div>
+                    
+                    <p>La interdependencia de los derechos humanos significa que estos desafíos están interconectados. La pobreza limita el acceso a la justicia, la discriminación afecta el disfrute de derechos económicos y sociales, y la inseguridad impacta el ejercicio de libertades fundamentales. Enfrentar estos desafíos requiere de políticas integrales que aborden las causas estructurales y promuevan el disfrute de todos los derechos para todas las personas.</p>
+                    
+                    <div class="activity-box">
+                        <div class="activity-title">Propuesta de Acción</div>
+                        <p>Selecciona uno de los desafíos contemporáneos en derechos humanos y desarrolla una propuesta de acción concreta para abordarlo. Incluye objetivos específicos, actores involucrados, recursos necesarios y mecanismos de evaluación.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="learning-content">
+            <h2>Contenidos de Aprendizaje</h2>
+            
+            <div class="card">
+                <div class="content-section">
+                    <div class="content-grid">
+                        <div class="content-item">
+                            <h4>Contenidos Conceptuales</h4>
+                            <ul>
+                                <li>La institucionalidad como garante de procesos democráticos</li>
+                                <li>Participación ciudadana e institucionalización democrática</li>
+                                <li>Control ciudadano sobre las instituciones</li>
+                                <li>Institucionalización nacional e internacional para el fomento de la democracia</li>
+                                <li>El rol del Estado como garante de los derechos humanos</li>
+                                <li>Desafíos para garantizar el cumplimiento de los derechos humanos</li>
+                                <li>Retos para garantizar derechos humanos en todas las áreas y grupos poblacionales</li>
+                                <li>La ciudadanía como agente de promoción de derechos humanos</li>
+                                <li>El rol de la ciudadanía como agente de derechos</li>
+                                <li>Mecanismos ciudadanos para la defensa y promoción de derechos humanos</li>
+                                <li>Personajes destacados por la lucha en defensa de los derechos humanos</li>
+                                <li>Casos concretos de defensa de los derechos humanos</li>
+                                <li>Marco normativo internacional de derechos humanos</li>
+                                <li>Sistemas de protección regionales y universales</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="content-item">
+                            <h4>Contenidos Procedimentales</h4>
+                            <ul>
+                                <li>Comprensión sobre la importancia de la institucionalidad para garantizar la democracia</li>
+                                <li>Valoración de la participación ciudadana y la institucionalización como elementos fundamentales</li>
+                                <li>Análisis del rol del Estado para el cumplimiento de los derechos humanos</li>
+                                <li>Identificación de desafíos de las sociedades actuales para garantizar derechos humanos</li>
+                                <li>Valoración del rol de la ciudadanía como agente de promoción y defensa</li>
+                                <li>Análisis de casos emblemáticos de defensa de derechos humanos</li>
+                                <li>Interpretación del marco normativo nacional e internacional</li>
+                                <li>Evaluación de mecanismos de protección existentes</li>
+                                <li>Diseño de estrategias para la promoción de derechos humanos</li>
+                                <li>Análisis crítico de políticas públicas desde la perspectiva de derechos humanos</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="indicators">
+                    <h4>Indicadores de Logro</h4>
+                    <ul>
+                        <li><strong>5.1</strong> Interpreta la importancia de la institucionalidad para garantizar la democracia en El Salvador.</li>
+                        <li><strong>5.2</strong> Determina la participación ciudadana y la institucionalización como elementos fundamentales en la construcción de procesos democráticos.</li>
+                        <li><strong>5.3</strong> Evalúa el rol del Estado como garante del cumplimiento de los derechos humanos y promotor de condiciones para la dignidad humana.</li>
+                        <li><strong>5.4</strong> Analiza los desafíos de las sociedades actuales para garantizar el cumplimiento de los derechos humanos de todas las personas y grupos poblacionales.</li>
+                        <li><strong>5.5</strong> Asume el compromiso por la defensa de los derechos humanos como agente de transformación social y promoción del bien común.</li>
+                    </ul>
+                </div>
+                
+                <div class="attitudes">
+                    <h4>Contenidos Actitudinales</h4>
+                    <ul>
+                        <li>Valoración de los espacios de participación ciudadana como elementos fundamentales para la consolidación del sistema democrático.</li>
+                        <li>Toma de decisiones y actuación de acuerdo con los principios para el bien común.</li>
+                        <li>Compromiso con el cumplimiento de los derechos humanos como principios fundamentales.</li>
+                        <li>Respeto y defensa de la dignidad humana en todas las circunstancias.</li>
+                        <li>Sensibilidad ante las situaciones de vulneración de derechos humanos.</li>
+                        <li>Actitud proactiva en la promoción y defensa de los derechos humanos.</li>
+                        <li>Reconocimiento del valor del trabajo de defensores y defensoras de derechos humanos.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <section id="resources">
+            <h2>Recursos Adicionales</h2>
+            
+            <div class="card">
+                <div class="topic-content">
+                    <h3>Fuentes de Información</h3>
+                    <ul>
+                        <li>Procuraduría para la Defensa de los Derechos Humanos - Informes anuales y especiales</li>
+                        <li>Alto Comisionado de las Naciones Unidas para los Derechos Humanos - Documentos y informes</li>
+                        <li>Corte Interamericana de Derechos Humanos - Sentencias y opiniones consultivas</li>
+                        <li>Organizaciones de la sociedad civil - Informes sombra y documentación</li>
+                        <li>Biblioteca Virtual de Derechos Humanos - Recursos educativos y documentales</li>
+                    </ul>
+                    
+                    <h3>Términos Clave</h3>
+                    <ul>
+                        <li><strong>Dignidad humana:</strong> Valor inherente de toda persona que fundamenta los derechos humanos.</li>
+                        <li><strong>Universalidad:</strong> Característica de los derechos humanos que los hace aplicables a todas las personas.</li>
+                        <li><strong>Indivisibilidad:</strong> Principio que establece que todos los derechos humanos tienen igual importancia.</li>
+                        <li><strong>Mecanismos de protección:</strong> Instrumentos y procedimientos para garantizar el respeto de los derechos humanos.</li>
+                        <li><strong>Justiciabilidad:</strong> Posibilidad de exigir judicialmente el cumplimiento de los derechos humanos.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <div class="unit-nav">
+            <a href="Unidad4.html" class="nav-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+                Unidad 4: Guerra Civil
+            </a>
+            <a href="Unidad6.html" class="nav-btn">
+                Unidad 6: Sociedad del Conocimiento
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+            </a>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>Programa de Estudios de Ciudadanía y Valores - Educación Media 2024</p>
+            <p>Ministerio de Educación, Ciencia y Tecnología - El Salvador</p>
+            <p>Material en validación - Proyecto "Mi Nueva Escuela"</p>
+        </div>
+    </footer>
+</body>
+</html>

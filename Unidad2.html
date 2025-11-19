@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unidad 2: Dinámicas Poblacionales y Desarrollo Humano</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #34495e;
+            --text: #2c3e50;
+            --background: #f9f9f9;
+            --success: #27ae60;
+            --tertiary: #9b59b6;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.7;
+            font-size: 18px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            color: white;
+            padding: 2.5rem 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: cover;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .home-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: white;
+            text-decoration: none;
+            padding: 0.7rem 1.2rem;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .home-btn:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        
+        h2 {
+            color: var(--primary);
+            margin: 2.5rem 0 1.5rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 3px solid var(--tertiary);
+            font-size: 2.2rem;
+        }
+        
+        h3 {
+            color: var(--dark);
+            margin: 2rem 0 1rem;
+            font-size: 1.8rem;
+        }
+        
+        h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .unit-badge {
+            display: inline-block;
+            background: var(--tertiary);
+            color: white;
+            padding: 0.5rem 1.2rem;
+            border-radius: 30px;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .subtitle {
+            font-size: 1.4rem;
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .intro {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.12);
+        }
+        
+        .unit-header {
+            border-left: 6px solid var(--tertiary);
+        }
+        
+        .competence {
+            background-color: rgba(155, 89, 182, 0.15);
+            padding: 1.8rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+            font-size: 1.3rem;
+            line-height: 1.8;
+            border-left: 4px solid var(--tertiary);
+        }
+        
+        .content-section {
+            margin: 2rem 0;
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+        
+        .content-item {
+            background-color: var(--light);
+            padding: 1.8rem;
+            border-radius: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .content-item h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .indicators {
+            background-color: rgba(231, 76, 60, 0.1);
+            padding: 1.8rem;
+            border-radius: 10px;
+            margin-top: 1.8rem;
+            font-size: 1.2rem;
+            border-left: 4px solid var(--accent);
+        }
+        
+        .attitudes {
+            background-color: rgba(46, 204, 113, 0.1);
+            padding: 1.8rem;
+            border-radius: 10px;
+            margin-top: 1.8rem;
+            font-size: 1.2rem;
+            border-left: 4px solid var(--success);
+        }
+        
+        .topic-content {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            margin: 1.5rem 0;
+        }
+        
+        .topic-content p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-top: 4px solid var(--tertiary);
+        }
+        
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            font-size: 1.1rem;
+            color: var(--dark);
+        }
+        
+        .activity-box {
+            background-color: rgba(155, 89, 182, 0.05);
+            border-left: 4px solid var(--tertiary);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .activity-title {
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            color: var(--primary);
+        }
+        
+        .pyramid-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .pyramid {
+            display: inline-block;
+            width: 300px;
+            height: 200px;
+            position: relative;
+            margin: 1rem 0;
+        }
+        
+        .pyramid-segment {
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+        }
+        
+        .segment-1 { background: #e74c3c; bottom: 0; }
+        .segment-2 { background: #3498db; bottom: 40px; }
+        .segment-3 { background: #2ecc71; bottom: 80px; }
+        .segment-4 { background: #f39c12; bottom: 120px; }
+        .segment-5 { background: #9b59b6; bottom: 160px; }
+        
+        footer {
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 2.5rem 0;
+            margin-top: 3rem;
+            font-size: 1.2rem;
+        }
+        
+        .unit-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #eee;
+        }
+        
+        .nav-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            background: var(--tertiary);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-btn:hover {
+            background: var(--primary);
+            transform: translateY(-2px);
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 1.2rem;
+        }
+        
+        .comparison-table th, .comparison-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .comparison-table th {
+            background-color: var(--tertiary);
+            color: white;
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        @media (max-width: 768px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .card {
+                padding: 1.8rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .unit-nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .nav-btn {
+                justify-content: center;
+            }
+            
+            .pyramid {
+                width: 250px;
+            }
+            
+            .comparison-table {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="nav-container">
+                <a href="index.html" class="home-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                    Volver al Inicio
+                </a>
+                <div class="unit-badge">Unidad 2</div>
+            </div>
+            <h1>Dinámicas Poblacionales y Desarrollo Humano</h1>
+            <p class="subtitle">Análisis de la estructura demográfica, condiciones de vida y políticas de desarrollo en El Salvador</p>
+        </div>
+    </header>
+    
+    <main class="container">
+        <section id="unit-overview">
+            <div class="card unit-header">
+                <div class="intro">
+                    <p>Esta unidad permite comprender las características demográficas de la población salvadoreña, analizar los factores que inciden en su desarrollo humano y evaluar las políticas públicas orientadas a mejorar la calidad de vida.</p>
+                </div>
+                
+                <div class="competence">
+                    <p><strong>Competencia de unidad:</strong> Comprender las condiciones de vida de la población salvadoreña mediante el análisis de los indicadores de desarrollo humano, las desigualdades sociales y el impacto de las políticas públicas.</p>
+                </div>
+                
+                <div class="highlight-box">
+                    <h3>Enfoque de la Unidad</h3>
+                    <p>El estudio de las dinámicas poblacionales nos permite entender cómo las características demográficas, los patrones de distribución territorial y las políticas públicas inciden en el desarrollo humano y la calidad de vida de la población salvadoreña.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="demographic-profile">
+            <h2>Perfil Demográfico de El Salvador</h2>
+            
+            <div class="card">
+                <div class="topic-content">
+                    <p>El Salvador cuenta con una población estimada de 6.5 millones de habitantes (2023), siendo el país más densamente poblado de América continental con aproximadamente 313 habitantes por kilómetro cuadrado. La población salvadoreña experimenta una transición demográfica avanzada, caracterizada por la disminución de las tasas de fecundidad y mortalidad, y un progresivo envejecimiento poblacional. La tasa global de fecundidad se sitúa en 2.0 hijos por mujer, cercana al nivel de reemplazo generacional.</p>
+                    
+                    <p>La estructura por edad y sexo de la población salvadoreña refleja los cambios demográficos de las últimas décadas. La pirámide poblacional ha evolucionado de una forma expansiva (base ancha) típica de poblaciones jóvenes, hacia una forma constrictiva que indica una reducción en la proporción de población infantil y juvenil, y un aumento relativo de la población adulta y adulta mayor.</p>
+                    
+                    <div class="pyramid-container">
+                        <h4>Estructura Poblacional de El Salvador</h4>
+                        <div class="pyramid">
+                            <div class="pyramid-segment segment-5">65+ años: 8%</div>
+                            <div class="pyramid-segment segment-4">45-64 años: 18%</div>
+                            <div class="pyramid-segment segment-3">25-44 años: 28%</div>
+                            <div class="pyramid-segment segment-2">15-24 años: 20%</div>
+                            <div class="pyramid-segment segment-1">0-14 años: 26%</div>
+                        </div>
+                        <p><em>Composición por grupos de edad (datos aproximados)</em></p>
+                    </div>
+                    
+                    <p>La esperanza de vida al nacer ha aumentado significativamente, alcanzando los 73.5 años (71.5 para hombres y 75.6 para mujeres). Sin embargo, persisten brechas en la esperanza de vida saludable, afectada por factores como la violencia, las enfermedades crónicas y los limitados accesos a servicios de salud de calidad. La mortalidad infantil se ha reducido considerablemente, situándose en 12 por cada 1,000 nacidos vivos, aunque con variaciones significativas entre departamentos.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="population-distribution">
+            <h2>Distribución Territorial y Urbanización</h2>
+            
+            <div class="card">
+                <div class="topic-content">
+                    <p>La distribución espacial de la población salvadoreña es marcadamente desigual, con una alta concentración en el área metropolitana de San Salvador, que alberga aproximadamente el 27% de la población nacional en solo el 3% del territorio. Esta concentración responde a factores históricos, económicos y de accesibilidad a servicios, generando desequilibrios territoriales significativos entre la región central y el resto del país.</p>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-value">72%</div>
+                            <div class="stat-label">Población urbana</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">28%</div>
+                            <div class="stat-label">Población rural</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">27%</div>
+                            <div class="stat-label">En área metropolitana de San Salvador</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">313/km²</div>
+                            <div class="stat-label">Densidad poblacional</div>
+                        </div>
+                    </div>
+                    
+                    <p>El proceso de urbanización se ha acelerado en las últimas décadas, alcanzando una tasa de urbanización del 72%. Este crecimiento urbano ha sido en muchos casos desordenado, con expansión de asentamientos precarios, déficit de servicios básicos y problemas ambientales. Las ciudades intermedias como Santa Ana, San Miguel y Sonsonate han experimentado un crecimiento significativo, aunque con limitaciones en su capacidad para generar desarrollo económico y ofrecer servicios de calidad.</p>
+                    
+                    <div class="activity-box">
+                        <div class="activity-title">Análisis de Caso</div>
+                        <p>Investiga la evolución demográfica de tu municipio o departamento en las últimas tres décadas. Identifica los principales factores que han influido en su crecimiento o decrecimiento poblacional, y analiza cómo estos cambios han afectado la disponibilidad de servicios básicos y las condiciones de vida.</p>
+                    </div>
+                    
+                    <p>La población rural enfrenta desafíos particulares relacionados con el acceso limitado a servicios de educación, salud, agua potable y saneamiento. El despoblamiento relativo de algunas zonas rurales, especialmente aquellas con menor conectividad y oportunidades económicas, ha generado problemas de envejecimiento poblacional y abandono de actividades productivas tradicionales. Las políticas de desarrollo territorial buscan revertir estos desequilibrios mediante la promoción de polos de desarrollo regional y el fortalecimiento de la conectividad.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="poverty-inequality">
+            <h2>Pobreza y Desigualdad Social</h2>
+            
+            <div class="card">
+                <div class="topic-content">
+                    <p>El Salvador enfrenta desafíos significativos en materia de pobreza y desigualdad. Según datos oficiales, aproximadamente el 26.5% de la población vive en situación de pobreza (17.5% pobreza relativa y 9% pobreza extrema). Estos promedios nacionales ocultan importantes disparidades territoriales, con incidencias de pobreza que superan el 40% en algunos departamentos como Cabañas y Morazán, mientras que en el área metropolitana de San Salvador se sitúa alrededor del 18%.</p>
+                    
+                    <p>La pobreza en El Salvador presenta características multidimensionales que van más allá del ingreso económico. Incluye privaciones en el acceso a educación de calidad, servicios de salud, vivienda digna, seguridad alimentaria y participación social. La pobreza infantil afecta de manera desproporcionada a los hogares con jefatura femenina y a la población rural e indígenada. La desigualdad en la distribución del ingreso se mantiene elevada, con un coeficiente de Gini de 0.38, indicando una concentración significativa de los recursos económicos.</p>
+                    
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Indicador</th>
+                                <th>Área Urbana</th>
+                                <th>Área Rural</th>
+                                <th>Brecha</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Pobreza total</td>
+                                <td>21.5%</td>
+                                <td>35.8%</td>
+                                <td>14.3 puntos</td>
+                            </tr>
+                            <tr>
+                                <td>Acceso a agua potable</td>
+                                <td>94%</td>
+                                <td>76%</td>
+                                <td>18 puntos</td>
+                            </tr>
+                            <tr>
+                                <td>Acceso a internet</td>
+                                <td>68%</td>
+                                <td>32%</td>
+                                <td>36 puntos</td>
+                            </tr>
+                            <tr>
+                                <td>Años de escolaridad promedio</td>
+                                <td>9.2 años</td>
+                                <td>6.1 años</td>
+                                <td>3.1 años</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <p>Las políticas de reducción de la pobreza en El Salvador han evolucionado desde enfoques asistencialistas hacia estrategias más integrales que combinan transferencias monetarias condicionadas (como el Programa Comunidades Solidarias), con intervenciones en educación, salud, vivienda y generación de empleo. Sin embargo, los resultados han sido limitados por factores estructurales como la baja recaudación fiscal, la limitada coordinación interinstitucional y la persistencia de desigualdades de origen histórico.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="migration-phenomenon">
+            <h2>Fenómeno Migratorio</h2>
+            
+            <div class="card">
+                <div class="topic-content">
+                    <p>La migración constituye un fenómeno estructural en la sociedad salvadoreña, con aproximadamente 2.5 millones de salvadoreños residiendo en el exterior, principalmente en Estados Unidos (86%), seguido por Canadá, México y países europeos. Esta diáspora representa cerca del 30% de la población que habitaría el país en condiciones de no migración, configurando uno de los procesos migratorios más significativos de América Latina en relación con el tamaño de la población de origen.</p>
+                    
+                    <p>Las causas de la migración salvadoreña son multifactoriales, combinando factores de expulsión (violencia, limitadas oportunidades económicas, reunificación familiar) y factores de atracción (demanda laboral en países de destino, redes migratorias establecidas). La migración por motivos económicos sigue siendo predominante, aunque en las últimas décadas ha aumentado significativamente la migración por causas vinculadas a la violencia e inseguridad ciudadana.</p>
+                    
+                    <div class="activity-box">
+                        <div class="activity-title">Actividad de Reflexión</div>
+                        <p>Analiza el impacto de las remesas familiares en la economía de tu comunidad. Identifica tanto los efectos positivos (mejora en consumo, inversión en educación y salud) como los posibles efectos negativos (dependencia económica, inflación de precios en bienes y servicios no transables). Propone estrategias para maximizar el desarrollo local a partir de estos flujos.</p>
+                    </div>
+                    
+                    <p>Las remesas familiares representan un componente crucial de la economía salvadoreña, alcanzando aproximadamente $7,500 millones anuales (equivalente al 22.8% del PIB). Estos flujos tienen efectos significativos en la reducción de la pobreza, el consumo familiar, la inversión en educación y salud, y la dinamización de economías locales. Sin embargo, también generan dependencia económica, presiones inflacionarias en sectores no transables y cambios en la estructura productiva local.</p>
+                    
+                    <p>El perfil del migrante salvadoreño ha experimentado cambios importantes: mientras históricamente predominaba la migración masculina con bajos niveles educativos, actualmente se observa una creciente feminización de la migración y un aumento en el nivel educativo de los migrantes. Las políticas migratorias enfrentan el desafío de proteger los derechos de los migrantes, aprovechar las potencialidades de la diáspora para el desarrollo nacional, y abordar las causas estructurales que motivan la migración.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="human-development">
+            <h2>Desarrollo Humano y Políticas Públicas</h2>
+            
+            <div class="card">
+                <div class="topic-content">
+                    <p>El Índice de Desarrollo Humano (IDH) de El Salvador se sitúa en 0.667 (2021), posicionándose en la categoría de desarrollo humano medio y en el puesto 127 a nivel mundial. Este indicador sintetiza los avances del país en esperanza de vida, educación y nivel de vida digno. Si bien el IDH ha mostrado una tendencia positiva en las últimas décadas, el progreso ha sido más lento que en otros países de la región, y persisten importantes brechas internas.</p>
+                    
+                    <p>El desarrollo humano en El Salvador enfrenta desafíos multidimensionales que requieren políticas públicas integrales y coordinadas. En el ámbito educativo, si bien se ha alcanzado una cobertura casi universal en educación primaria, persisten problemas de calidad, pertinencia y equidad. La educación media y superior presentan tasas de cobertura significativamente menores, especialmente en zonas rurales y para población en situación de pobreza. La transición entre educación y mercado laboral representa otro desafío crítico, con altas tasas de desempleo juvenil y desajustes entre la formación y las demandas del sector productivo.</p>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-value">0.667</div>
+                            <div class="stat-label">Índice de Desarrollo Humano</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">73.5 años</div>
+                            <div class="stat-label">Esperanza de vida al nacer</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">8.5 años</div>
+                            <div class="stat-label">Años promedio de escolaridad</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">$7,850</div>
+                            <div class="stat-label">Ingreso nacional bruto per cápita (PPP)</div>
+                        </div>
+                    </div>
+                    
+                    <p>En el sector salud, los avances en indicadores como la mortalidad infantil y materna contrastan con persistentes desafíos en el acceso a servicios de calidad, especialmente para población rural y de bajos ingresos. El sistema de salud enfrenta problemas de financiamiento, fragmentación y limitada capacidad de respuesta ante las transiciones epidemiológicas (aumento de enfermedades crónicas) y demográficas (envejecimiento poblacional). La seguridad social cubre solo a una parte de la población, dejando importantes segmentos sin protección ante riesgos de salud y vejez.</p>
+                    
+                    <p>Las políticas públicas de desarrollo humano requieren de un enfoque intersectorial que articule intervenciones en educación, salud, protección social, vivienda y empleo. La territorialización de las políticas, el fortalecimiento de la participación ciudadana y la mejora en la gestión pública son elementos clave para avanzar hacia un desarrollo humano más inclusivo y sostenible. El desafío fundamental consiste en transformar el crecimiento económico en mejoras concretas en la calidad de vida de toda la población, reduciendo las brechas de desigualdad que persisten en el país.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="learning-content">
+            <h2>Contenidos de Aprendizaje</h2>
+            
+            <div class="card">
+                <div class="content-section">
+                    <div class="content-grid">
+                        <div class="content-item">
+                            <h4>Contenidos Conceptuales</h4>
+                            <ul>
+                                <li>Demografía y distribución poblacional en El Salvador</li>
+                                <li>Tendencias demográficas y patrones de distribución</li>
+                                <li>Oportunidades y desafíos demográficos</li>
+                                <li>La pobreza en El Salvador: causas y consecuencias</li>
+                                <li>Relación entre pobreza y medioambiente</li>
+                                <li>Políticas y programas para la reducción de la pobreza</li>
+                                <li>El trabajo como derecho social</li>
+                                <li>Mercados de trabajo y condiciones laborales</li>
+                                <li>Diferenciación socio espacial del trabajo</li>
+                                <li>El fenómeno migratorio en El Salvador</li>
+                                <li>Factores que inciden en la migración</li>
+                                <li>Rutas, flujos e índices migratorios</li>
+                                <li>Perfil de los migrantes e impactos de la migración</li>
+                                <li>El papel regulador del Estado en migración</li>
+                                <li>Desarrollo humano y políticas públicas</li>
+                                <li>Calidad de vida de las poblaciones</li>
+                                <li>Planificación y acceso a servicios públicos</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="content-item">
+                            <h4>Contenidos Procedimentales</h4>
+                            <ul>
+                                <li>Reconocimiento de las principales tendencias demográficas y patrones de distribución poblacional</li>
+                                <li>Identificación de causas y consecuencias de la pobreza en El Salvador</li>
+                                <li>Comprensión de políticas y programas para reducción de la pobreza</li>
+                                <li>Caracterización de condiciones laborales y mercados de trabajo</li>
+                                <li>Descripción del fenómeno migratorio mediante reconocimiento de causas y rutas</li>
+                                <li>Comprensión de impactos de estrategias de prevención de migración</li>
+                                <li>Análisis de políticas públicas orientadas a mejorar calidad de vida</li>
+                                <li>Interpretación de indicadores de desarrollo humano</li>
+                                <li>Comparación de condiciones de vida entre diferentes territorios</li>
+                                <li>Evaluación de programas sociales y su impacto en el desarrollo</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="indicators">
+                    <h4>Indicadores de Logro</h4>
+                    <ul>
+                        <li><strong>2.1</strong> Comprende las tendencias demográficas y los patrones de distribución poblacional en El Salvador examinando las oportunidades y desafíos que estas representan para mejorar las condiciones de vida de la población.</li>
+                        <li><strong>2.2</strong> Explica las causas y consecuencias de la pobreza en El Salvador, relacionando factores históricos, sociales, económicos y políticos.</li>
+                        <li><strong>2.3</strong> Evalúa las políticas y programas implementados en El Salvador para reducir la pobreza, proponiendo mejoras.</li>
+                        <li><strong>2.4</strong> Explica las características de las condiciones laborales y los mercados de trabajo en El Salvador a partir del análisis de distintos indicadores y de la diferenciación socioespacial.</li>
+                        <li><strong>2.5</strong> Analiza el fenómeno migratorio en El Salvador, mediante el reconocimiento de causas, principales rutas migratorias y perfil de los migrantes, evaluando sus efectos.</li>
+                        <li><strong>2.6</strong> Evalúa los impactos de las estrategias de prevención de la migración y de gestión de conflictos migratorios tomando en cuenta las perspectivas de los diferentes actores involucrados.</li>
+                        <li><strong>2.7</strong> Evalúa las políticas públicas orientadas a la mejora de la calidad de vida en El Salvador.</li>
+                    </ul>
+                </div>
+                
+                <div class="attitudes">
+                    <h4>Contenidos Actitudinales</h4>
+                    <ul>
+                        <li>Interés al identificar factores demográficos, políticos, sociales y económicos que inciden en las condiciones de vida de la población salvadoreña.</li>
+                        <li>Valoración de políticas públicas que promuevan una distribución equitativa de los recursos y oportunidades.</li>
+                        <li>Sensibilidad ante las situaciones de pobreza y exclusión social.</li>
+                        <li>Respeto y solidaridad hacia la población migrante y sus familias.</li>
+                        <li>Compromiso con la búsqueda de soluciones a los problemas de desarrollo humano en el país.</li>
+                        <li>Valoración crítica de las estadísticas e indicadores sociales como herramientas para la comprensión de la realidad.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <section id="resources">
+            <h2>Recursos Adicionales</h2>
+            
+            <div class="card">
+                <div class="topic-content">
+                    <h3>Fuentes de Información</h3>
+                    <ul>
+                        <li>Dirección General de Estadística y Censos (DIGESTYC) - Censos de población y encuestas de hogares</li>
+                        <li>Programa de las Naciones Unidas para el Desarrollo (PNUD) - Informes de desarrollo humano</li>
+                        <li>Ministerio de Salud - Estadísticas vitales y de morbilidad</li>
+                        <li>Banco Central de Reserva - Estadísticas sobre remesas familiares</li>
+                        <li>Organización Internacional para las Migraciones (OIM) - Estudios sobre migración</li>
+                    </ul>
+                    
+                    <h3>Términos Clave</h3>
+                    <ul>
+                        <li><strong>Transición demográfica:</strong> Proceso de cambio desde altas a bajas tasas de natalidad y mortalidad.</li>
+                        <li><strong>Pirámide poblacional:</strong> Gráfico que muestra la distribución por edad y sexo de una población.</li>
+                        <li><strong>Índice de Desarrollo Humano (IDH):</strong> Indicador que mide el desarrollo de un país considerando salud, educación e ingresos.</li>
+                        <li><strong>Pobreza multidimensional:</strong> Enfoque que considera múltiples carencias más allá del ingreso.</li>
+                        <li><strong>Diáspora:</strong> Dispersión de un pueblo o comunidad fuera de su lugar de origen.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <div class="unit-nav">
+            <a href="Unidad1.html" class="nav-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+                Unidad 1: Geografía Económica
+            </a>
+            <a href="Unidad3.html" class="nav-btn">
+                Unidad 3: Gobiernos Militares
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+            </a>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>Programa de Estudios de Ciudadanía y Valores - Educación Media 2024</p>
+            <p>Ministerio de Educación, Ciencia y Tecnología - El Salvador</p>
+            <p>Material en validación - Proyecto "Mi Nueva Escuela"</p>
+        </div>
+    </footer>
+</body>
+</html>
